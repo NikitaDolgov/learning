@@ -1,0 +1,1056 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <style type="text/css">
+  .dayOfWeek {
+    color: #91959D;
+  }
+  .previousMonth {
+    color: #DDDDDD;
+  }
+  .monthName {
+    position: relative;
+    margin: 0 auto;
+    left: 10px;
+    color:red;
+    margin-bottom: 0px;
+    font-size: 30px;
+  }
+  .monthTable {
+    padding: 15px;
+
+  }
+  .selected_date{
+    margin-top: 0px;
+    border-radius:25px;
+    background:red;
+    color:white;
+    line-height: 34px;
+    width: 34px;
+  }
+  td{
+    border-radius:25px;
+    background:white;
+    color:black;
+    line-height: 34px;
+    width: 34px; 
+    text-align: center;
+    padding-right: 10px;      
+  }
+  table {
+    border-collapse: collapse;
+  }
+  .main_date {
+    font-size: 40px;
+    padding-bottom: 20px;
+    font-family: "";
+  }
+  .red_circle {
+    border-radius:25px;
+    background: #fc625d;
+    width: 15px;
+    height:15px;
+    margin-left: 20px;
+    margin-top: 9px;
+    display: inline-block;
+    border: solid 1px #d36e6a;
+    color: #fc625d;
+  }
+  .yellow_circle {
+    border-radius:25px;
+    background: #ffbd43;
+    width: 15px;
+    height:15px;
+    margin-left: 10px;
+    margin-top: 9px;
+    display: inline-block;
+    border: solid 1px #deb969;
+    color: #ffbd43;
+  }
+  .green_circle {
+    border-radius:25px;
+    background: #36c849;
+    width: 15px;
+    height:15px;
+    margin-left: 10px;
+    margin-top: 9px;
+    display: inline-block;
+    border: solid 1px #3cbd4e;
+    color: #36c849;
+  }
+  .calendars {
+    width: 100px;
+    height:25px;
+    margin-left: 10px;
+    margin-top: 5px;
+    background: white;
+    border-radius:5px;
+    display: inline-block;
+    text-align: center;
+    line-height: 25px;
+    display: inline-block;
+    border: solid 1px #c1bebf;
+    color: #76716b;
+  }         
+  #header {
+    background: linear-gradient(to bottom, #e7e4e7, #d2cfd2);
+    border: solid 1px #c1bebf;
+    height:38px;
+  }
+  #sidebar {
+    background: #f5f1ef;
+    width: 300px;
+    height: 973px;
+    border: solid 1px #e4e3e0;
+    position: absolute;
+  }
+  #main {
+    margin-left: 320px;
+    margin-top: 10px;
+  }
+  .green_square {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background: #66d845;
+    border: solid 1px #61ba44;
+    border-radius:5px;
+    margin-left: 20px;
+    color: #66d845;
+    line-height:20px;
+  }
+  .red_square {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background: #fc2f6b;
+    border: solid 1px #dd2f64;
+    border-radius:5px;
+    margin-left: 20px;
+    color: #fc2f6b;
+    line-height:20px;
+  }
+  .blue_square {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background: #2dacef;
+    border: solid 1px #258dc1;
+    border-radius:5px;
+    margin-left: 20px;
+    color: #2dacef;
+    line-height:20px;
+  }
+  .green1_square {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background: #166921;
+    border: solid 1px #0d5f2b;
+    border-radius:5px;
+    margin-left: 20px;
+    color: #166921;
+    line-height:20px;
+  }
+  .green2_square {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background: #348463;
+    border: solid 1px #377b5f;
+    border-radius:5px;
+    margin-left: 20px;
+    color: #348463;
+    line-height:20px;
+  }
+  .green3_square {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background: #298f81;
+    border: solid 1px #248778;
+    border-radius:5px;
+    margin-left: 20px;
+    color: #298f81;
+    line-height:20px;
+  }        
+  .lable {
+    display: inline-block; 
+    height: 22px;
+    width: 200px;
+    margin-left: 7px;
+    font-family: Helvetica;
+    color: #554b49;
+    line-height:22px;            
+  }
+  .square_lable {
+    margin-top: 10px;
+  }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <div class="red_circle">A</div>
+    <div class="yellow_circle">A</div>
+    <div class="green_circle">A</div>p
+    <div class="calendars"><b>Calendars</b></div>
+  </div>
+  <div id="sidebar">
+    <p style="color: #76716b; margin-left: 5px; margin-top: 3px; font-family:courier; margin-bottom: 0px;"><b>iCloud</b></p>
+    <div style="height:300px;width: 300px;">
+      <div class="square_lable">
+        <div class="green_square">A</div>
+        <div class="lable"><b>Дела (личные)</b></div>  
+      </div>
+      <div class="square_lable">
+        <div class="red_square">A</div>
+        <div class="lable"><b>ВАЖНО!!!!ALARM!!!</b></div>  
+      </div>
+      <div class="square_lable">
+        <div class="blue_square">A</div>
+        <div class="lable"><b>Работа</b></div>  
+      </div>          
+    </div>
+    <p style="color: #76716b; margin-left: 5px; margin-top: 3px; font-family:courier; margin-bottom: 0px;"><b>a.ryzhkov@directual.com</b></p>
+    <div style="height:300px;width: 300px;">
+      <div class="square_lable" style="background: #398ef8;height: 30px;padding-top: 10px; margin-bottom: -5px;">
+        <div class="green1_square">A</div>
+        <div class="lable" style="color: white;"><b>Holidays in Russian Fe...</b></div>  
+      </div>         
+      <div class="square_lable">
+        <div class="green2_square">A</div>
+        <div class="lable"><b>Contacts</b></div>  
+      </div>
+      <div class="square_lable">
+        <div class="green3_square">A</div>
+        <div class="lable"><b>a.ryzhkov@direct...</b></div>  
+      </div>          
+    </div>
+  </div>
+  <div id="main">
+    <div>
+      <div class="main_date">2018</div>
+      <div style="display: inline-block;margin-right: 20px">
+        <p class="monthName">January</p>
+        <table cellspacing="10">
+          <tr class='dayOfWeek'>
+            <td>M</td>
+            <td>T</td>
+            <td>W</td>
+            <td>T</td>
+            <td>F</td>
+            <td>S</td>
+            <td>S</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td class='dayOfWeek'>6</td>
+            <td class='dayOfWeek'>7</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td class='dayOfWeek'>13</td>
+            <td class='dayOfWeek'>14</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>16</td>
+            <td style="margin-right: 0px;"><div class="selected_date"><span>17</span></div></td>
+            <td>18</td>
+            <td>19</td>
+            <td class='dayOfWeek'>20</td>
+            <td class='dayOfWeek'>21</td>
+          </tr>
+          <tr>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td class='dayOfWeek'>27</td>
+            <td class='dayOfWeek'>28</td>
+          </tr>
+          <tr>
+            <td>29</td>
+            <td>30</td>
+            <td>31</td>
+            <td class='previousMonth'>1</td>
+            <td class='previousMonth'>2</td>
+            <td class='previousMonth'>3</td>
+            <td class='previousMonth'>4</td>
+          </tr>
+          <tr>
+            <td class='previousMonth'>5</td>
+            <td class='previousMonth'>6</td>
+            <td class='previousMonth'>7</td>
+            <td class='previousMonth'>8</td>
+            <td class='previousMonth'>9</td>
+            <td class='previousMonth'>10</td>
+            <td class='previousMonth'>11</td>
+          </tr>                         
+        </table>
+      </div>
+      <div style="display: inline-block; margin-right: 20px">
+        <p class="monthName">February</p>
+        <table cellspacing="10">
+          <tr class='dayOfWeek'>
+            <td>M</td>
+            <td>T</td>
+            <td>W</td>
+            <td>T</td>
+            <td>F</td>
+            <td>S</td>
+            <td>S</td>
+          </tr>
+          <tr>
+            <td class='previousMonth'>29</td>
+            <td class='previousMonth'>30</td>
+            <td class='previousMonth'>31</td>
+            <td>1</td>
+            <td>2</td>
+            <td class='dayOfWeek'>3</td>
+            <td class='dayOfWeek'>4</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td class='dayOfWeek'>10</td>
+            <td class='dayOfWeek'>11</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td class='dayOfWeek'>17</td>
+            <td class='dayOfWeek'>18</td>
+          </tr>
+          <tr>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td class='dayOfWeek'>24</td>
+            <td class='dayOfWeek'>25</td>
+          </tr>
+          <tr>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td class='previousMonth'>1</td>
+            <td class='previousMonth'>2</td>
+            <td class='previousMonth'>3</td>
+            <td class='previousMonth'>4</td>
+          </tr>
+          <tr>
+            <td class='previousMonth'>5</td>
+            <td class='previousMonth'>6</td>
+            <td class='previousMonth'>7</td>
+            <td class='previousMonth'>8</td>
+            <td class='previousMonth'>9</td>
+            <td class='previousMonth'>10</td>
+            <td class='previousMonth'>11</td>
+          </tr>                         
+        </table>
+      </div>
+      <div style="display: inline-block; margin-right: 20px">
+        <p class="monthName">March</p>
+        <table cellspacing="10">
+          <tr class='dayOfWeek'>
+            <td>M</td>
+            <td>T</td>
+            <td>W</td>
+            <td>T</td>
+            <td>F</td>
+            <td>S</td>
+            <td>S</td>
+          </tr>
+          <tr>
+            <td class='previousMonth'>29</td>
+            <td class='previousMonth'>30</td>
+            <td class='previousMonth'>31</td>
+            <td>1</td>
+            <td>2</td>
+            <td class='dayOfWeek'>3</td>
+            <td class='dayOfWeek'>4</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td class='dayOfWeek'>10</td>
+            <td class='dayOfWeek'>11</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td class='dayOfWeek'>17</td>
+            <td class='dayOfWeek'>18</td>
+          </tr>
+          <tr>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td class='dayOfWeek'>24</td>
+            <td class='dayOfWeek'>25</td>
+          </tr>
+          <tr>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td class='previousMonth'>1</td>
+            <td class='previousMonth'>2</td>
+            <td class='previousMonth'>3</td>
+            <td class='previousMonth'>4</td>
+          </tr>
+          <tr>
+            <td class='previousMonth'>5</td>
+            <td class='previousMonth'>6</td>
+            <td class='previousMonth'>7</td>
+            <td class='previousMonth'>8</td>
+            <td class='previousMonth'>9</td>
+            <td class='previousMonth'>10</td>
+            <td class='previousMonth'>11</td>
+          </tr>                         
+        </table>
+      </div>
+      <div style="display: inline-block; margin-right: 20px">
+        <p class="monthName">April</p>
+        <table cellspacing="10">
+          <tr class='dayOfWeek'>
+            <td>M</td>
+            <td>T</td>
+            <td>W</td>
+            <td>T</td>
+            <td>F</td>
+            <td>S</td>
+            <td>S</td>
+          </tr>
+          <tr>
+            <td class='previousMonth'>29</td>
+            <td class='previousMonth'>30</td>
+            <td class='previousMonth'>31</td>
+            <td>1</td>
+            <td>2</td>
+            <td class='dayOfWeek'>3</td>
+            <td class='dayOfWeek'>4</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td class='dayOfWeek'>10</td>
+            <td class='dayOfWeek'>11</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td class='dayOfWeek'>17</td>
+            <td class='dayOfWeek'>18</td>
+          </tr>
+          <tr>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td class='dayOfWeek'>24</td>
+            <td class='dayOfWeek'>25</td>
+          </tr>
+          <tr>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td class='previousMonth'>1</td>
+            <td class='previousMonth'>2</td>
+            <td class='previousMonth'>3</td>
+            <td class='previousMonth'>4</td>
+          </tr>
+          <tr>
+            <td class='previousMonth'>5</td>
+            <td class='previousMonth'>6</td>
+            <td class='previousMonth'>7</td>
+            <td class='previousMonth'>8</td>
+            <td class='previousMonth'>9</td>
+            <td class='previousMonth'>10</td>
+            <td class='previousMonth'>11</td>
+          </tr>                         
+        </table>
+      </div>          
+    </div>
+    <div>
+      <div style="display: inline-block;margin-right: 20px">
+        <p class="monthName">May</p>
+        <table cellspacing="10">
+          <tr class='dayOfWeek'>
+            <td>M</td>
+            <td>T</td>
+            <td>W</td>
+            <td>T</td>
+            <td>F</td>
+            <td>S</td>
+            <td>S</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td class='dayOfWeek'>6</td>
+            <td class='dayOfWeek'>7</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td class='dayOfWeek'>13</td>
+            <td class='dayOfWeek'>14</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td class='dayOfWeek'>20</td>
+            <td class='dayOfWeek'>21</td>
+          </tr>
+          <tr>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td class='dayOfWeek'>27</td>
+            <td class='dayOfWeek'>28</td>
+          </tr>
+          <tr>
+            <td>29</td>
+            <td>30</td>
+            <td>31</td>
+            <td class='previousMonth'>1</td>
+            <td class='previousMonth'>2</td>
+            <td class='previousMonth'>3</td>
+            <td class='previousMonth'>4</td>
+          </tr>
+          <tr>
+            <td class='previousMonth'>5</td>
+            <td class='previousMonth'>6</td>
+            <td class='previousMonth'>7</td>
+            <td class='previousMonth'>8</td>
+            <td class='previousMonth'>9</td>
+            <td class='previousMonth'>10</td>
+            <td class='previousMonth'>11</td>
+          </tr>                         
+        </table>
+      </div>
+      <div style="display: inline-block; margin-right: 20px">
+        <p class="monthName">June</p>
+        <table cellspacing="10">
+          <tr class='dayOfWeek'>
+            <td>M</td>
+            <td>T</td>
+            <td>W</td>
+            <td>T</td>
+            <td>F</td>
+            <td>S</td>
+            <td>S</td>
+          </tr>
+          <tr>
+            <td class='previousMonth'>29</td>
+            <td class='previousMonth'>30</td>
+            <td class='previousMonth'>31</td>
+            <td>1</td>
+            <td>2</td>
+            <td class='dayOfWeek'>3</td>
+            <td class='dayOfWeek'>4</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td class='dayOfWeek'>10</td>
+            <td class='dayOfWeek'>11</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td class='dayOfWeek'>17</td>
+            <td class='dayOfWeek'>18</td>
+          </tr>
+          <tr>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td class='dayOfWeek'>24</td>
+            <td class='dayOfWeek'>25</td>
+          </tr>
+          <tr>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td class='previousMonth'>1</td>
+            <td class='previousMonth'>2</td>
+            <td class='previousMonth'>3</td>
+            <td class='previousMonth'>4</td>
+          </tr>
+          <tr>
+            <td class='previousMonth'>5</td>
+            <td class='previousMonth'>6</td>
+            <td class='previousMonth'>7</td>
+            <td class='previousMonth'>8</td>
+            <td class='previousMonth'>9</td>
+            <td class='previousMonth'>10</td>
+            <td class='previousMonth'>11</td>
+          </tr>                         
+        </table>
+      </div>
+      <div style="display: inline-block; margin-right: 20px">
+        <p class="monthName">July</p>
+        <table cellspacing="10">
+          <tr class='dayOfWeek'>
+            <td>M</td>
+            <td>T</td>
+            <td>W</td>
+            <td>T</td>
+            <td>F</td>
+            <td>S</td>
+            <td>S</td>
+          </tr>
+          <tr>
+            <td class='previousMonth'>29</td>
+            <td class='previousMonth'>30</td>
+            <td class='previousMonth'>31</td>
+            <td>1</td>
+            <td>2</td>
+            <td class='dayOfWeek'>3</td>
+            <td class='dayOfWeek'>4</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td class='dayOfWeek'>10</td>
+            <td class='dayOfWeek'>11</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td class='dayOfWeek'>17</td>
+            <td class='dayOfWeek'>18</td>
+          </tr>
+          <tr>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td class='dayOfWeek'>24</td>
+            <td class='dayOfWeek'>25</td>
+          </tr>
+          <tr>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td class='previousMonth'>1</td>
+            <td class='previousMonth'>2</td>
+            <td class='previousMonth'>3</td>
+            <td class='previousMonth'>4</td>
+          </tr>
+          <tr>
+            <td class='previousMonth'>5</td>
+            <td class='previousMonth'>6</td>
+            <td class='previousMonth'>7</td>
+            <td class='previousMonth'>8</td>
+            <td class='previousMonth'>9</td>
+            <td class='previousMonth'>10</td>
+            <td class='previousMonth'>11</td>
+          </tr>                         
+        </table>
+      </div>
+      <div style="display: inline-block; margin-right: 20px">
+        <p class="monthName">August</p>
+        <table cellspacing="10">
+          <tr class='dayOfWeek'>
+            <td>M</td>
+            <td>T</td>
+            <td>W</td>
+            <td>T</td>
+            <td>F</td>
+            <td>S</td>
+            <td>S</td>
+          </tr>
+          <tr>
+            <td class='previousMonth'>29</td>
+            <td class='previousMonth'>30</td>
+            <td class='previousMonth'>31</td>
+            <td>1</td>
+            <td>2</td>
+            <td class='dayOfWeek'>3</td>
+            <td class='dayOfWeek'>4</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td class='dayOfWeek'>10</td>
+            <td class='dayOfWeek'>11</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td class='dayOfWeek'>17</td>
+            <td class='dayOfWeek'>18</td>
+          </tr>
+          <tr>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td class='dayOfWeek'>24</td>
+            <td class='dayOfWeek'>25</td>
+          </tr>
+          <tr>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td class='previousMonth'>1</td>
+            <td class='previousMonth'>2</td>
+            <td class='previousMonth'>3</td>
+            <td class='previousMonth'>4</td>
+          </tr>
+          <tr>
+            <td class='previousMonth'>5</td>
+            <td class='previousMonth'>6</td>
+            <td class='previousMonth'>7</td>
+            <td class='previousMonth'>8</td>
+            <td class='previousMonth'>9</td>
+            <td class='previousMonth'>10</td>
+            <td class='previousMonth'>11</td>
+          </tr>                         
+        </table>
+      </div>          
+    </div>
+    <div>
+      <div style="display: inline-block;margin-right: 20px">
+        <p class="monthName">September</p>
+        <table cellspacing="10">
+          <tr class='dayOfWeek'>
+            <td>M</td>
+            <td>T</td>
+            <td>W</td>
+            <td>T</td>
+            <td>F</td>
+            <td>S</td>
+            <td>S</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td class='dayOfWeek'>6</td>
+            <td class='dayOfWeek'>7</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td class='dayOfWeek'>13</td>
+            <td class='dayOfWeek'>14</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td class='dayOfWeek'>20</td>
+            <td class='dayOfWeek'>21</td>
+          </tr>
+          <tr>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td class='dayOfWeek'>27</td>
+            <td class='dayOfWeek'>28</td>
+          </tr>
+          <tr>
+            <td>29</td>
+            <td>30</td>
+            <td>31</td>
+            <td class='previousMonth'>1</td>
+            <td class='previousMonth'>2</td>
+            <td class='previousMonth'>3</td>
+            <td class='previousMonth'>4</td>
+          </tr>
+          <tr>
+            <td class='previousMonth'>5</td>
+            <td class='previousMonth'>6</td>
+            <td class='previousMonth'>7</td>
+            <td class='previousMonth'>8</td>
+            <td class='previousMonth'>9</td>
+            <td class='previousMonth'>10</td>
+            <td class='previousMonth'>11</td>
+          </tr>                         
+        </table>
+      </div>
+      <div style="display: inline-block; margin-right: 20px">
+        <p class="monthName">October</p>
+        <table cellspacing="10">
+          <tr class='dayOfWeek'>
+            <td>M</td>
+            <td>T</td>
+            <td>W</td>
+            <td>T</td>
+            <td>F</td>
+            <td>S</td>
+            <td>S</td>
+          </tr>
+          <tr>
+            <td class='previousMonth'>29</td>
+            <td class='previousMonth'>30</td>
+            <td class='previousMonth'>31</td>
+            <td>1</td>
+            <td>2</td>
+            <td class='dayOfWeek'>3</td>
+            <td class='dayOfWeek'>4</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td class='dayOfWeek'>10</td>
+            <td class='dayOfWeek'>11</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td class='dayOfWeek'>17</td>
+            <td class='dayOfWeek'>18</td>
+          </tr>
+          <tr>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td class='dayOfWeek'>24</td>
+            <td class='dayOfWeek'>25</td>
+          </tr>
+          <tr>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td class='previousMonth'>1</td>
+            <td class='previousMonth'>2</td>
+            <td class='previousMonth'>3</td>
+            <td class='previousMonth'>4</td>
+          </tr>
+          <tr>
+            <td class='previousMonth'>5</td>
+            <td class='previousMonth'>6</td>
+            <td class='previousMonth'>7</td>
+            <td class='previousMonth'>8</td>
+            <td class='previousMonth'>9</td>
+            <td class='previousMonth'>10</td>
+            <td class='previousMonth'>11</td>
+          </tr>                         
+        </table>
+      </div>
+      <div style="display: inline-block; margin-right: 20px">
+        <p class="monthName">November</p>
+        <table cellspacing="10">
+          <tr class='dayOfWeek'>
+            <td>M</td>
+            <td>T</td>
+            <td>W</td>
+            <td>T</td>
+            <td>F</td>
+            <td>S</td>
+            <td>S</td>
+          </tr>
+          <tr>
+            <td class='previousMonth'>29</td>
+            <td class='previousMonth'>30</td>
+            <td class='previousMonth'>31</td>
+            <td>1</td>
+            <td>2</td>
+            <td class='dayOfWeek'>3</td>
+            <td class='dayOfWeek'>4</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td class='dayOfWeek'>10</td>
+            <td class='dayOfWeek'>11</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td class='dayOfWeek'>17</td>
+            <td class='dayOfWeek'>18</td>
+          </tr>
+          <tr>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td class='dayOfWeek'>24</td>
+            <td class='dayOfWeek'>25</td>
+          </tr>
+          <tr>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td class='previousMonth'>1</td>
+            <td class='previousMonth'>2</td>
+            <td class='previousMonth'>3</td>
+            <td class='previousMonth'>4</td>
+          </tr>
+          <tr>
+            <td class='previousMonth'>5</td>
+            <td class='previousMonth'>6</td>
+            <td class='previousMonth'>7</td>
+            <td class='previousMonth'>8</td>
+            <td class='previousMonth'>9</td>
+            <td class='previousMonth'>10</td>
+            <td class='previousMonth'>11</td>
+          </tr>                         
+        </table>
+      </div>
+      <div style="display: inline-block; margin-right: 20px">
+        <p class="monthName">December</p>
+        <table cellspacing="10">
+          <tr class='dayOfWeek'>
+            <td>M</td>
+            <td>T</td>
+            <td>W</td>
+            <td>T</td>
+            <td>F</td>
+            <td>S</td>
+            <td>S</td>
+          </tr>
+          <tr>
+            <td class='previousMonth'>29</td>
+            <td class='previousMonth'>30</td>
+            <td class='previousMonth'>31</td>
+            <td>1</td>
+            <td>2</td>
+            <td class='dayOfWeek'>3</td>
+            <td class='dayOfWeek'>4</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td class='dayOfWeek'>10</td>
+            <td class='dayOfWeek'>11</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td class='dayOfWeek'>17</td>
+            <td class='dayOfWeek'>18</td>
+          </tr>
+          <tr>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td class='dayOfWeek'>24</td>
+            <td class='dayOfWeek'>25</td>
+          </tr>
+          <tr>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td class='previousMonth'>1</td>
+            <td class='previousMonth'>2</td>
+            <td class='previousMonth'>3</td>
+            <td class='previousMonth'>4</td>
+          </tr>
+          <tr>
+            <td class='previousMonth'>5</td>
+            <td class='previousMonth'>6</td>
+            <td class='previousMonth'>7</td>
+            <td class='previousMonth'>8</td>
+            <td class='previousMonth'>9</td>
+            <td class='previousMonth'>10</td>
+            <td class='previousMonth'>11</td>
+          </tr>                         
+        </table>
+      </div>          
+    </div>                 
+  </div>
+</body>
+</html>
