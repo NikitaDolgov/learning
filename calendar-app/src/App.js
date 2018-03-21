@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Month from './components/Month';
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
-      <div>
-       AAA
-      </div>
+      <Month />      
     );
   }
 }
