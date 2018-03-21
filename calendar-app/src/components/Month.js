@@ -2,9 +2,6 @@ import React from 'react';
 import './Month.css';
 
 class Month extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
       return (
@@ -46,13 +43,13 @@ function getDays(monthNumber) {
     const nextMonthNumber = thisMonthNumber + 1;
     let dayOfWeek = new Date(2018,monthNumber,1).getDay();
 
-    dayOfWeek == 0 ? 7 : dayOfWeek;
+    dayOfWeek === 0 ? 7 : dayOfWeek;
     dayOfWeek = dayOfWeek - 1; 
 
     const thisMonthDays = getDaysInMonth(thisMonthNumber, 2018);
     const previousMonthDays = getDaysInMonth(previousMonthNumber, 2018);
     let nextMonthDays;
-    if (nextMonthNumber == 12) {
+    if (nextMonthNumber === 12) {
         nextMonthDays = getDaysInMonth(0, 2019);
     }
     else {
@@ -86,26 +83,23 @@ function tableRow(monthNumber,rowNumber) {
     for (start;start<=end;start++) {
         inputRow = inputRow.concat(days[start]);
     }
-    console.log(inputRow);
     if (rowNumber === 1) {
         row = inputRow.map((inputRow) => <th>{inputRow}</th>)
     } 
     else {
         row = inputRow.map((inputRow) => { 
-            if (true) {
-                return <td class='circle circle--empty'>{inputRow}</td>
+            if (monthNumber === new Date().getMonth() && inputRow === new Date().getDate()) {
+                return <td class='circle circle--filled'>{inputRow}</td>               
             }
             else
             {
-                return <td class='circle circle--red'>{inputRow}</td>
+                return <td class='circle circle--empty'>{inputRow}</td>
             }
         })
     }
-    console.log(row);
     return (
         <tr>{row}</tr>
     );
 }
-
 
 export default Month;  

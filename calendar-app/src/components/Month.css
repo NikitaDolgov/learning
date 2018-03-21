@@ -48,15 +48,16 @@ caption {
 }
 
 .circle {
-
+    border-radius: 25px;
+    width: 30px;
+    height: 30px;
 }
 
-.circle--empty {
-    border-radius: 25px;
-    background: green;
+.circle--empty {   
+    background: white;
 }
 
 .circle--filled {
-    background:red;
-    color: #717171;
+    background: #0087f3;
+    color: white;
 }
