@@ -46,3 +46,17 @@ caption {
     margin-left: 10px;
     margin-bottom: -5px;
 }
+
+.circle {
+
+}
+
+.circle--empty {
+    border-radius: 25px;
+    background: green;
+}
+
+.circle--filled {
+    background:red;
+    color: #717171;
+}

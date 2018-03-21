@@ -91,7 +91,15 @@ function tableRow(monthNumber,rowNumber) {
         row = inputRow.map((inputRow) => <th>{inputRow}</th>)
     } 
     else {
-        row = inputRow.map((inputRow) => <td>{inputRow}</td>)
+        row = inputRow.map((inputRow) => { 
+            if (true) {
+                return <td class='circle circle--empty'>{inputRow}</td>
+            }
+            else
+            {
+                return <td class='circle circle--red'>{inputRow}</td>
+            }
+        })
     }
     console.log(row);
     return (
