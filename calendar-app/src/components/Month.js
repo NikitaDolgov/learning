@@ -51,7 +51,13 @@ function getDays(monthNumber) {
 
     const thisMonthDays = getDaysInMonth(thisMonthNumber, 2018);
     const previousMonthDays = getDaysInMonth(previousMonthNumber, 2018);
-    const nextMonthDays = getDaysInMonth(nextMonthNumber, 2018);
+    let nextMonthDays;
+    if (nextMonthNumber == 12) {
+        nextMonthDays = getDaysInMonth(0, 2019);
+    }
+    else {
+        nextMonthDays = getDaysInMonth(nextMonthNumber, 2018);
+    }
     const a = previousMonthDays.length-dayOfWeek;
     const b = 42-thisMonthDays.length-dayOfWeek;
 

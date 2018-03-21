@@ -22,7 +22,7 @@ class App extends React.Component {
           <div class='month'><Month month={8} /></div> 
           <div class='month'><Month month={9} /></div>    
           <div class='month'><Month month={10} /></div>
-          <div class='month'><Month month={0} /></div>
+          <div class='month'><Month month={11} /></div>
         </div> 
       </div> 
                      
