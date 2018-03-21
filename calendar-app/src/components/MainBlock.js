@@ -6,6 +6,7 @@ class MainBlock extends React.Component {
     render() {
       return (
         <div class='MainBlock'>
+          <p class='year'>2018</p>
           <div>
             <div class='month'><Month month={0} /></div> 
             <div class='month'><Month month={1} /></div>    

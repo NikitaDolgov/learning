@@ -1,0 +1,22 @@
+.month {
+    display: inline-block;
+}
+
+.MainBlock {
+
+}
+
+.year {
+    width: 66px;
+    height: 32px;
+    font-family: HelveticaNeue;
+    font-size: 26px;
+    font-weight: 300; 
+    font-style: normal; 
+    font-stretch: normal;
+    line-height: normal; 
+    letter-spacing: 1.9px; 
+    text-align: center; 
+    color: #1d2022;
+    margin-bottom: 0px;
+}
