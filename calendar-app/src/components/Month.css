@@ -2,33 +2,33 @@ table {
     padding: 10px;
 }
 
-th {
+th {    
     width: 25px;
-  height: 12px;
-  opacity: 0.59;
-  font-family: HelveticaNeue;
-  font-size: 10px;
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: 0.7px;
-  text-align: center;
-  color: #949494;  
+    height: 12px;
+    opacity: 0.59;
+    font-family: HelveticaNeue;
+    font-size: 10px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.7px;
+    text-align: center;
+    color: #949494;  
 }
 
 td {
-  width: 13px;
-  height: 25px;
-  font-family: HelveticaNeue;
-  font-size: 12px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 2.08;
-  letter-spacing: -0.7px;
-  text-align: center;
-  color: #717171;
+    width: 13px;
+    height: 25px;
+    font-family: HelveticaNeue;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2.08;
+    letter-spacing: -0.7px;
+    text-align: center;
+    color: #717171;
 }
 
 caption {
