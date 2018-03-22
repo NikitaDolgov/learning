@@ -1,0 +1,17 @@
+.block {
+    display: inline-block;
+    line-height:45px;
+    height:45px;
+    width:45px;
+}
+.circle-button {
+    width: 13px;
+    height: 13px;
+    border-radius: 25px;
+    margin: 0 auto;
+    margin-top: 16.5px;
+}
+.circle--red {
+    background: #ff5f58;
+    border: solid 0.5px #e1483f;
+}

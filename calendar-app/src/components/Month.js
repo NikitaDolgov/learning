@@ -20,12 +20,14 @@ class Month extends React.Component {
     }
   }
 
-  function getMonthName (monthNumber){
+//Получаем русское название месяца по номеру 
+function getMonthName (monthNumber){
     const months = ['январь','февраль','март','апрель','май','июнь','июль','август','сентябрь','октябрь','ноябрь','декабрь'];
     return months[monthNumber];
     }
 
-  function getDaysInMonth(month, year) {
+//Получаем список дней из месяца
+function getDaysInMonth(month, year) {
     const date = new Date(year, month, 1);
     let days = [];
     while (date.getMonth() === month) {
@@ -35,6 +37,7 @@ class Month extends React.Component {
     return days;
 }
 
+//Получаем полный массив дат для для отображения месяца 
 function getDays(monthNumber) {
     let days = ['MON','TUE','WED','THU','FRI','SAT','SUN'];    
     const thisMonthNumber = new Date(2018,monthNumber,1).getMonth();
@@ -72,7 +75,7 @@ function getDays(monthNumber) {
     return days;
 }
 
-
+//Клеим строки для таблицы из массива дат
 function tableRow(monthNumber,rowNumber) {
     const days = getDays(monthNumber);
     let inputRow = [];

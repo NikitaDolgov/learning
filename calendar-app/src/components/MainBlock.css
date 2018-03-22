@@ -1,9 +1,11 @@
 .month {
     display: inline-block;
+    margin-right: calc(100%/64);
+    resize: both;
 }
 
 .MainBlock {
-
+    width: 100%;
 }
 
 .year {

@@ -4,7 +4,7 @@
 }
 
 .side {
-    flex: 10%;
+    flex: 20%;
     width: 208px;
     border-radius: 5px;
     background-blend-mode: overlay, normal;
@@ -13,7 +13,7 @@
 }
 
 .main {
-    flex: 90%;
+    flex: 80%;
     background-color: white;
 }
 
