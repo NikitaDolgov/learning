@@ -1,8 +1,11 @@
+import 'antd/dist/antd.css';
+import './App.css';
 import React from 'react';
 import MainBlock from './components/MainBlock';
 import HeaderBlock from './components/HeaderBlock';
 import SideBlock from './components/SideBlock';
-import './App.css';
+
+
 
 
 class App extends React.Component {
