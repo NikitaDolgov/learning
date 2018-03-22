@@ -43,8 +43,9 @@ caption {
     letter-spacing: 1.1px;
     text-align: left;
     color: #e30613;
-    margin-left: 10px;
-    margin-bottom: -5px;
+    margin-bottom: 15px;
+    caption-side: top;
+    margin-left: 3px;
 }
 
 .circle {

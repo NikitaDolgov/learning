@@ -11,6 +11,7 @@
     text-align: left;
     color: #575757;
     margin-left: 15px;
+    margin-top: 15px;
 }
 
 .line {
@@ -26,3 +27,20 @@
     height: 490px;
 }
 
+.SideBlock__checkbox {
+    margin-left: 15px;
+    width: 190px;
+    height: 16px;
+    font-family: SFUIText;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -0.3px;
+    color: #575757;
+}
+
+.SideBlock__checkbox--green {
+
+}

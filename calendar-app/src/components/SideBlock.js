@@ -8,7 +8,8 @@ class SideBlock extends React.Component {
             <div>
                 <p class='email'>mybox@directual.com</p>
                 <div class='calendars'>
-                    <Checkbox>Checkbox</Checkbox>
+                    <Checkbox className='SideBlock__checkbox SideBlock__checkbox--blue'>Holidays in Russia</Checkbox>
+                    <Checkbox className='SideBlock__checkbox SideBlock__checkbox--green'>t.shapotko@directual.com</Checkbox>
                 </div>
                 <hr class='line'></hr>
                 <div class='small-month'></div>

@@ -1,36 +1,76 @@
-.block {
-    display: inline-block;
-    height:100%;
+.HeaderBlock {
+    height: 100%;
+    display: flex;
+    width:1280px;
+    align-items: center;
 }
-.circle-button {
+
+.header-item {
+    display: flex;
+    
+}
+
+.header-button {
+    justify-content:space-between;
+    align-items: center;
+    width:52px;
+} 
+
+.header-cirlce {
+    border-radius: 100%;
     width: 12px;
     height: 12px;
-    border-radius: 100%;
-    margin-right: 8px;
 }
-.circle--red {
-    background: #ff5f58;
+
+.header-circle--red {
+    background-color: #ff5f58;
     border: solid 0.5px #e1483f;
 }
-.circle--yellow {
+.header-circle--yellow {
     background-color: #ffbe2f;
     border: solid 0.5px #e0a028;
 }
-.circle--green {
+.header-circle--green {
     background-color: #2ac940;
     border: solid 0.5px #2bac2d;
 }
-.headerBlock {
-    height:100%;
+.header-circle--grey {
+    border-radius: 100%;
+    width: 12px;
+    height: 12px;
+    background-color:#737473;
 }
 
-.header-cal {
+.HeaderBlock__header-cal {
+    align-items: center;
     width: 110px;
     height: 22px;
     border-radius: 4px;
     background-image: linear-gradient(to bottom, #fefefe, #f1f1f1);
     box-shadow: 0 0.5px 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 0.5px rgba(0, 0, 0, 0.1);
-    text-align: center;
     margin-left: 71px;
-    
+}
+.HeaderBlock__cal-text {
+    width: 110px;
+    height: 15px;
+    font-family: SFUIText;
+    font-size: 13px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -0.3px;
+    text-align: center;
+    color: #575757;
+    margin-bottom: 0px;
+}
+.HeaderBlock__header-arrow {
+    width: 40px;
+    height: 22px;
+    border-radius: 4px;
+    background-image: linear-gradient(to bottom, #fefefe, #f1f1f1);
+    box-shadow: 0 0.5px 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 0.5px rgba(0, 0, 0, 0.1);
+    margin-left: 20px; 
+    align-items: center;
+    justify-content:center;
 }

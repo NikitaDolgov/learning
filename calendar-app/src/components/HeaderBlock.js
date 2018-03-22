@@ -4,18 +4,17 @@ import './HeaderBlock.css';
 class HeaderBlock extends React.Component {
     render (){
         return (
-            <div class='headerBlock'>
-                <div class='block'>
-                    <p class='circle-button circle--red'></p>
+            <div class='HeaderBlock'>
+                <div class='header-item header-button'>
+                    <div class='header-cirlce header-circle--red'></div>
+                    <div class='header-cirlce header-circle--yellow'></div>
+                    <div class='header-cirlce header-circle--green'></div>
                 </div>
-                <div class='block'>
-                    <p class='circle-button circle--yellow'></p>
+                <div class='header-item HeaderBlock__header-cal'>
+                    <p class='HeaderBlock__cal-text'>Календарь</p>
                 </div>
-                <div class='block'>
-                    <p class='circle-button circle--green'></p>
-                </div>
-                <div class='block'>
-                    <div class='header-cal'>Календари</div>
+                <div class='header-item HeaderBlock__header-arrow'>
+                    <div class='header-circle--grey'></div>
                 </div>    
             </div>
         ); 

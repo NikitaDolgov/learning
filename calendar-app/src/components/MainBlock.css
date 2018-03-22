@@ -1,7 +1,8 @@
 .month {
     display: inline-block;
-    margin-right: calc(100%/48);
+    margin-right: calc(100%/64);
     resize: both;
+    margin-left: 37px;
 }
 
 .MainBlock {
@@ -21,5 +22,6 @@
     text-align: center; 
     color: #1d2022;
     margin-bottom: 0px;
-    margin-top: 0px;
+    margin-top: 10px;
+    margin-left: 37px;
 }
