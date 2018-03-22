@@ -1,0 +1,27 @@
+.email {
+    width: 134px;
+    height: 15px;
+    font-family: SFUIText;
+    font-size: 13px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -0.3px;
+    text-align: left;
+    color: #575757;
+    margin-left: 15px;
+}
+
+.line {
+    height: 1px;
+    background-color: #d8d8d8;
+
+}
+.small-month {
+    height: 203px;
+}
+
+.calendars {
+    height: 490px;
+}
