@@ -92,7 +92,7 @@ function tableRow(monthNumber,rowNumber) {
     else {
         row = inputRow.map((inputRow) => { 
             if (monthNumber === new Date().getMonth() && inputRow === new Date().getDate()) {
-                return <td class='circle circle--filled'><Button shape='circle' className='Month__table-button-filled'>{inputRow}</Button></td>               
+                return <td class='circle circle--filled'><Button type='primary' shape='circle' className='Month__table-button-filled'>{inputRow}</Button></td>               
             }
             else
             {
