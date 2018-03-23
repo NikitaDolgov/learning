@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'antd';
 import './Month.css';
 
 class Month extends React.Component {
@@ -91,11 +92,11 @@ function tableRow(monthNumber,rowNumber) {
     else {
         row = inputRow.map((inputRow) => { 
             if (monthNumber === new Date().getMonth() && inputRow === new Date().getDate()) {
-                return <td class='circle circle--filled'>{inputRow}</td>               
+                return <td class='circle circle--filled'><Button shape='circle' className='Month__table-button-filled'>{inputRow}</Button></td>               
             }
             else
             {
-                return <td class='circle circle--empty'>{inputRow}</td>
+                return <td class='circle circle--empty'><Button shape='circle' className='Month__table-button-empty'>{inputRow}</Button></td>
             }
         })
     }

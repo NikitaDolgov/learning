@@ -62,3 +62,14 @@ caption {
     background: #0087f3;
     color: white;
 }
+.Month__table-button-empty {
+    border: white;
+    width: 20px;
+    height: 20px;
+}
+.Month__table-button-filed {
+    border: white;
+    background: #0087f3;
+    width: 20px;
+    height: 20px;
+}
