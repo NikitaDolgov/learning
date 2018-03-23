@@ -74,7 +74,7 @@
     align-items: center;
     justify-content:center;
 }
-.HeaderBlock_middle-buttons{
+.HeaderBlock__middle-buttons{
     margin-left: 206px;
 }
 .HeaderBlock__buttons {
@@ -86,7 +86,6 @@
     text-align: center;
     line-height: 22px;
 }
-
 .HeaderBlock__buttons-text {
     height: 15px;
     font-family: SFUIText;
@@ -98,4 +97,15 @@
     letter-spacing: normal;
     color: #262626;
     margin-bottom: 0;
+}
+.HeaderBlock__search {
+    margin-left: 342px;
+}
+.HeaderBlock__search--field {
+    width: 140px;
+    height: 22px;
+    border-radius: 4px;
+    background-image: linear-gradient(to bottom, #fefefe, #f1f1f1);
+    box-shadow: 0 0.5px 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 0.5px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
