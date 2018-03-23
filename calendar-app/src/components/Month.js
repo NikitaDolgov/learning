@@ -8,8 +8,8 @@ const content = (
       <p>Ивент №2</p>
     </div>
   );  
-
-class Month extends React.Component {
+ 
+class Month extends React.Component {   
     render() {
       return (
         <div>
