@@ -66,3 +66,14 @@
     width: 20px;
     height: 20px;
 }
+
+.todel {
+    margin-left: 40px;
+    margin-top: 200px;
+}
+
+.button-to-del {
+    color: red;
+    font:50px;
+    font-weight: bold;
+}
