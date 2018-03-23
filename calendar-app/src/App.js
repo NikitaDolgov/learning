@@ -18,16 +18,16 @@ class App extends React.Component {
   double(t){
     switch(t) {
       case 'year':
-        return <div class='main'><MainBlock /></div>;
+        return <div className='main'><MainBlock /></div>;
         break;
       case 'month':
-        return <div class='main'><MainBlockMonth /></div>;
+        return <div className='main'><MainBlockMonth /></div>;
         break;
       case 'week':
-        return <div class='main'></div>;
+        return <div className='main'></div>;
         break;  
       case 'day':
-        return <div class='main'></div>;
+        return <div className='main'></div>;
         break;         
     }
   }
@@ -39,9 +39,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div class='header'><HeaderBlock onButtonClick={this.onButtonClick} /></div>
-        <div class='row'>
-          <div class='side'><SideBlock /></div>
+        <div className='header'><HeaderBlock onButtonClick={this.onButtonClick} /></div>
+        <div className='row'>
+          <div className='side'><SideBlock /></div>
           {this.double(this.state.view)}
         </div> 
       </div>               

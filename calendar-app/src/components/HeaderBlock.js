@@ -20,28 +20,28 @@ class HeaderBlock extends React.Component {
 
     render (){
         return (
-            <div class='HeaderBlock'>
-                <div class='header-item header-button'>
-                    <div class='header-cirlce header-circle--red'></div>
-                    <div class='header-cirlce header-circle--yellow'></div>
-                    <div class='header-cirlce header-circle--green'></div>
+            <div className='HeaderBlock'>
+                <div className='header-item header-button'>
+                    <div className='header-cirlce header-circle--red'></div>
+                    <div className='header-cirlce header-circle--yellow'></div>
+                    <div className='header-cirlce header-circle--green'></div>
                 </div>
-                <div class='header-item HeaderBlock__header-cal'>
-                    <p class='HeaderBlock__cal-text'>Календарь</p>
+                <div className='header-item HeaderBlock__header-cal'>
+                    <p className='HeaderBlock__cal-text'>Календарь</p>
                 </div>
-                <div class='header-item HeaderBlock__header-arrow'>
-                    <div class='header-circle--grey'></div>
+                <div className='header-item HeaderBlock__header-arrow'>
+                    <div className='header-circle--grey'></div>
                 </div>
-                <div class='header-item HeaderBlock__middle-buttons'>
+                <div className='header-item HeaderBlock__middle-buttons'>
                     <ButtonGroup>
-                        <Button onClick={this.onToggleClick('day')} className='HeaderBlock__buttons'><p class='HeaderBlock__buttons-text'>День</p></Button>
-                        <Button onClick={this.onToggleClick('week')} className='HeaderBlock__buttons'><p class='HeaderBlock__buttons-text'>Неделя</p></Button>
-                        <Button onClick={this.onToggleClick('month')} className='HeaderBlock__buttons'><p class='HeaderBlock__buttons-text'>Месяц</p></Button>
-                        <Button onClick={this.onToggleClick('year')} className='HeaderBlock__buttons'><p class='HeaderBlock__buttons-text'>Год</p></Button>
+                        <Button onClick={this.onToggleClick('day')} className='HeaderBlock__buttons'><p className='HeaderBlock__buttons-text'>День</p></Button>
+                        <Button onClick={this.onToggleClick('week')} className='HeaderBlock__buttons'><p className='HeaderBlock__buttons-text'>Неделя</p></Button>
+                        <Button onClick={this.onToggleClick('month')} className='HeaderBlock__buttons'><p className='HeaderBlock__buttons-text'>Месяц</p></Button>
+                        <Button onClick={this.onToggleClick('year')} className='HeaderBlock__buttons'><p className='HeaderBlock__buttons-text'>Год</p></Button>
                     </ButtonGroup>
                 </div>
-                <div class='header-item HeaderBlock__search'>
-                    <input type='text' placeholder='Поиск' class='HeaderBlock__search--field' />
+                <div className='header-item HeaderBlock__search'>
+                    <input type='text' placeholder='Поиск' className='HeaderBlock__search--field' />
                 </div>    
             </div>
         ); 

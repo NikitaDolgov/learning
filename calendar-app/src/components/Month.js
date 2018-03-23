@@ -99,7 +99,7 @@ function tableRow(monthNumber,rowNumber) {
     else {
         row = inputRow.map((inputRow) => { 
             if (monthNumber === new Date().getMonth() && inputRow === new Date().getDate()) {
-                return <td class='circle circle--filled'>
+                return <td className='circle circle--filled'>
                        <Popover content={content} title="Ивенты" trigger="click">
                        <Button type='primary' shape='circle' className='Month__table-button-filled'>{inputRow}</Button>
                        </Popover>
@@ -107,7 +107,7 @@ function tableRow(monthNumber,rowNumber) {
             }
             else
             {
-                return <td class='circle circle--empty'>
+                return <td className='circle circle--empty'>
                        <Popover content={content} title="Ивенты" trigger="click">
                        <Button shape='circle' className='Month__table-button-empty'>{inputRow}</Button>
                        </Popover>
