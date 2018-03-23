@@ -1,6 +1,6 @@
 import React from 'react';
 import './HeaderBlock.css';
-import { Button, Icon } from 'antd';
+import { Button } from 'antd';
 
 const ButtonGroup = Button.Group;
 

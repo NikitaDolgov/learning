@@ -8,8 +8,7 @@
     width: 208px;
     height: 757px;
     border-radius: 5px;
-    background-blend-mode: overlay, normal;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), linear-gradient(rgba(230, 230, 230, 0.3), rgba(230, 230, 230, 0.3));
+    background: #f8f8f8;
     box-shadow: 1px 0 1px 0 rgba(74, 74, 74, 0.24);
 }
 
