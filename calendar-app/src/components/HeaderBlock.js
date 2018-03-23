@@ -1,5 +1,8 @@
 import React from 'react';
 import './HeaderBlock.css';
+import { Button } from 'antd';
+
+const ButtonGroup = Button.Group;
 
 class HeaderBlock extends React.Component {
     render (){
@@ -15,6 +18,14 @@ class HeaderBlock extends React.Component {
                 </div>
                 <div class='header-item HeaderBlock__header-arrow'>
                     <div class='header-circle--grey'></div>
+                </div>
+                <div class='header-item HeaderBlock_middle-buttons'>
+                    <ButtonGroup>
+                        <Button className='HeaderBlock__buttons'><p class='HeaderBlock__buttons-text'>День</p></Button>
+                        <Button className='HeaderBlock__buttons'><p class='HeaderBlock__buttons-text'>Неделя</p></Button>
+                        <Button className='HeaderBlock__buttons'><p class='HeaderBlock__buttons-text'>Месяц</p></Button>
+                        <Button className='HeaderBlock__buttons'><p class='HeaderBlock__buttons-text'>Год</p></Button>
+                    </ButtonGroup>
                 </div>    
             </div>
         ); 
