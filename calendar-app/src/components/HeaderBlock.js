@@ -1,10 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './HeaderBlock.css';
 import { Button } from 'antd';
 
 const ButtonGroup = Button.Group;
 
 class HeaderBlock extends React.Component {
+    static propTypes = {
+        onButtonClick: PropTypes.func.isRequired,
+    }
+
+    onToggleClick = (value) => (event) => {
+       console.log(value);
+       
+       this.props.onButtonClick(value);
+       
+    }
+
+
     render (){
         return (
             <div class='HeaderBlock'>
@@ -21,10 +34,10 @@ class HeaderBlock extends React.Component {
                 </div>
                 <div class='header-item HeaderBlock__middle-buttons'>
                     <ButtonGroup>
-                        <Button className='HeaderBlock__buttons'><p class='HeaderBlock__buttons-text'>День</p></Button>
-                        <Button className='HeaderBlock__buttons'><p class='HeaderBlock__buttons-text'>Неделя</p></Button>
-                        <Button className='HeaderBlock__buttons'><p class='HeaderBlock__buttons-text'>Месяц</p></Button>
-                        <Button className='HeaderBlock__buttons'><p class='HeaderBlock__buttons-text'>Год</p></Button>
+                        <Button onClick={this.onToggleClick('day')} className='HeaderBlock__buttons'><p class='HeaderBlock__buttons-text'>День</p></Button>
+                        <Button onClick={this.onToggleClick('week')} className='HeaderBlock__buttons'><p class='HeaderBlock__buttons-text'>Неделя</p></Button>
+                        <Button onClick={this.onToggleClick('month')} className='HeaderBlock__buttons'><p class='HeaderBlock__buttons-text'>Месяц</p></Button>
+                        <Button onClick={this.onToggleClick('year')} className='HeaderBlock__buttons'><p class='HeaderBlock__buttons-text'>Год</p></Button>
                     </ButtonGroup>
                 </div>
                 <div class='header-item HeaderBlock__search'>

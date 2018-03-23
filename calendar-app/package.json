@@ -7,7 +7,8 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "^1.1.1",
-    "serve": "^5.2.4"
+    "serve": "^5.2.4",
+    "prop-types": "15.6.1"
   },
   "scripts": {
     "now-start": "cd build && serve -s ./",

@@ -1,6 +1,13 @@
 import React from 'react';
-import { Button } from 'antd';
+import { Button, Popover } from 'antd';
 import './Month.css';
+
+const content = (
+    <div>
+      <p>Ивент №1</p>
+      <p>Ивент №2</p>
+    </div>
+  );  
 
 class Month extends React.Component {
     render() {
@@ -92,11 +99,19 @@ function tableRow(monthNumber,rowNumber) {
     else {
         row = inputRow.map((inputRow) => { 
             if (monthNumber === new Date().getMonth() && inputRow === new Date().getDate()) {
-                return <td class='circle circle--filled'><Button type='primary' shape='circle' className='Month__table-button-filled'>{inputRow}</Button></td>               
+                return <td class='circle circle--filled'>
+                       <Popover content={content} title="Ивенты" trigger="click">
+                       <Button type='primary' shape='circle' className='Month__table-button-filled'>{inputRow}</Button>
+                       </Popover>
+                       </td>               
             }
             else
             {
-                return <td class='circle circle--empty'><Button shape='circle' className='Month__table-button-empty'>{inputRow}</Button></td>
+                return <td class='circle circle--empty'>
+                       <Popover content={content} title="Ивенты" trigger="click">
+                       <Button shape='circle' className='Month__table-button-empty'>{inputRow}</Button>
+                       </Popover>
+                       </td>
             }
         })
     }
