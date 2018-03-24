@@ -61,6 +61,10 @@ caption {
 .circle--holiday {
     color: red;
 }
+.circle--weekend {
+    color:lightgrey;
+}
+
 
 .circle--filled {
     background: #0087f3;

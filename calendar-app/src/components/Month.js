@@ -28,13 +28,13 @@ class Month extends React.Component {
             <table>
                 <caption>{getMonthName(this.props.month)}</caption>
                 <tbody>
-                {tableRow(this.props.month,1,holidays_input)}
-                {tableRow(this.props.month,2,holidays_input)}
-                {tableRow(this.props.month,3,holidays_input)}
-                {tableRow(this.props.month,4,holidays_input)}
-                {tableRow(this.props.month,5,holidays_input)}
-                {tableRow(this.props.month,6,holidays_input)}
-                {tableRow(this.props.month,7,holidays_input)}
+                {tableRow(this.props.month,1,holidays_input,weekneds_input)}
+                {tableRow(this.props.month,2,holidays_input,weekneds_input)}
+                {tableRow(this.props.month,3,holidays_input,weekneds_input)}
+                {tableRow(this.props.month,4,holidays_input,weekneds_input)}
+                {tableRow(this.props.month,5,holidays_input,weekneds_input)}
+                {tableRow(this.props.month,6,holidays_input,weekneds_input)}
+                {tableRow(this.props.month,7,holidays_input,weekneds_input)}
                 </tbody>
             </table>
         </div>
@@ -50,12 +50,14 @@ function getMonthName (monthNumber){
 
 //Получаем список дней из месяца
 function getDaysInMonth(month, year) {
-    const date = new Date(year, month, 1);
+    let date = new Date(Date.UTC(year, month, 1));
+    console.log(date,'получившаяся дата');
     let days = [];
     while (date.getMonth() === month) {
        days.push(new Date(date));
        date.setDate(date.getDate() + 1);
     }
+    console.log(days, 'результат');
     return days;
 }
 
@@ -65,13 +67,22 @@ function getDays(monthNumber) {
     const thisMonthNumber = new Date(2018,monthNumber,1).getMonth();
     const previousMonthNumber = thisMonthNumber - 1;
     const nextMonthNumber = thisMonthNumber + 1;
-    let dayOfWeek = new Date(2018,monthNumber,1).getDay();
-
-    dayOfWeek === 0 ? 7 : dayOfWeek;
-    dayOfWeek = dayOfWeek - 1; 
-
+    let dayOfWeek = new Date(Date.UTC(2018,monthNumber,1)).getDay();
+    console.log(dayOfWeek, 'dayofweek 1');
+    console.log(previousMonthNumber, 'prev month number');
+    if (dayOfWeek === 0) {dayOfWeek = 7;};
+    console.log(dayOfWeek, 'dayofweek 2');
+    console.log(thisMonthNumber, 'thisMonthNumber 2');
     const thisMonthDays = getDaysInMonth(thisMonthNumber, 2018);
-    const previousMonthDays = getDaysInMonth(previousMonthNumber, 2018);
+    console.log(thisMonthDays,'thisMonthDays');
+    let previousMonthDays; 
+    if (previousMonthNumber === -1) {
+        previousMonthDays = getDaysInMonth(11, 2017)
+    }
+    else {
+        previousMonthDays = getDaysInMonth(previousMonthNumber, 2018);
+    }    
+    console.log(previousMonthDays,'prev month days');
     let nextMonthDays;
     if (nextMonthNumber === 12) {
         nextMonthDays = getDaysInMonth(0, 2019);
@@ -79,8 +90,10 @@ function getDays(monthNumber) {
     else {
         nextMonthDays = getDaysInMonth(nextMonthNumber, 2018);
     }
-    const a = previousMonthDays.length-dayOfWeek;
-    const b = 42-thisMonthDays.length-dayOfWeek;
+    console.log(nextMonthDays,'nextMonthDays');
+    const a = previousMonthDays.length-dayOfWeek+1;
+    const b = 42 - thisMonthDays.length-dayOfWeek+1;
+    console.log(a,b, 'кол-во дней до и после')
 
     //Добавляем даты из предыдущего месяца
     for (let i=a;i < previousMonthDays.length; i++) {       
@@ -98,8 +111,9 @@ function getDays(monthNumber) {
 }
 
 //Клеим строки для таблицы из массива дат
-function tableRow(monthNumber,rowNumber,holidays) {
+function tableRow(monthNumber,rowNumber,holidays,weekneds) {
     const days = getDays(monthNumber);
+    console.log(days);
     let inputRow = [];
     let row =[];
     const end = 7*rowNumber-1;
@@ -112,7 +126,7 @@ function tableRow(monthNumber,rowNumber,holidays) {
     } 
     else {
         row = inputRow.map((inputRow) => { 
-            if (monthNumber === new Date().getMonth() && inputRow === new Date().getDate()) {
+            if (monthNumber === new Date(Date.UTC()).getMonth() && inputRow === new Date(Date.UTC()).getDate()) {
                 return <td className='circle circle--filled' key={inputRow.id}>
                        <Popover content={content} title="Ивенты" trigger="click">
                        <Button type='primary' shape='circle' className='Month__table-button-filled'>{inputRow}</Button>
@@ -121,20 +135,31 @@ function tableRow(monthNumber,rowNumber,holidays) {
             }
             else
             {                
-                    if (holidays.includes((new Date(2018,inputRow.getMonth(),inputRow.getDate() + 1)).toISOString().split('T')[0])) {
-                       return <td className='circle circle--empty' key={inputRow.id}>
-                       <Popover content={content} title="Ивенты" trigger="click">
-                       <Button shape='circle' className='Month__table-button-empty circle--holiday'>{inputRow.getDate()}</Button>
-                       </Popover>
-                       </td>
-                    } else {
+                if (holidays.includes((new Date(Date.UTC(2018,inputRow.getMonth(),inputRow.getDate() ))).toISOString().split('T')[0])) 
+                    {
+                    return <td className='circle circle--empty' key={inputRow.id}>
+                    <Popover content={content} title="Ивенты" trigger="click">
+                    <Button shape='circle' className='Month__table-button-empty circle--holiday'>{inputRow.getDate()}</Button>
+                    </Popover>
+                    </td>
+                    } 
+                    else if (weekneds.includes((new Date(Date.UTC(2018,inputRow.getMonth(),inputRow.getDate() ))).toISOString().split('T')[0])) 
+                    {
+                        return <td className='circle circle--empty' key={inputRow.id}>
+                        <Popover content={content} title="Ивенты" trigger="click">
+                        <Button shape='circle' className='Month__table-button-empty circle--weekend'>{inputRow.getDate()}</Button>
+                        </Popover>
+                        </td>
+                    } 
+                    else 
+                    {
                         return <td className='circle circle--empty' key={inputRow.id}>
                         <Popover content={content} title="Ивенты" trigger="click">
                         <Button shape='circle' className='Month__table-button-empty'>{inputRow.getDate()}</Button>
                         </Popover>
                         </td>
-                    }                   
-            }
+                    }
+            }                              
         })
     }
     return (
