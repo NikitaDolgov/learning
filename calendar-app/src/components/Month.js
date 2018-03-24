@@ -15,6 +15,7 @@ class Month extends React.Component {
         <div>
             <table>
                 <caption>{getMonthName(this.props.month)}</caption>
+                <tbody>
                 {tableRow(this.props.month,1)}
                 {tableRow(this.props.month,2)}
                 {tableRow(this.props.month,3)}
@@ -22,6 +23,7 @@ class Month extends React.Component {
                 {tableRow(this.props.month,5)}
                 {tableRow(this.props.month,6)}
                 {tableRow(this.props.month,7)}
+                </tbody>
             </table>
         </div>
       );
@@ -94,12 +96,12 @@ function tableRow(monthNumber,rowNumber) {
         inputRow = inputRow.concat(days[start]);
     }
     if (rowNumber === 1) {
-        row = inputRow.map((inputRow) => <th>{inputRow}</th>)
+        row = inputRow.map((inputRow) => <th key={inputRow.id}>{inputRow}</th>)
     } 
     else {
         row = inputRow.map((inputRow) => { 
             if (monthNumber === new Date().getMonth() && inputRow === new Date().getDate()) {
-                return <td className='circle circle--filled'>
+                return <td className='circle circle--filled' key={inputRow.id}>
                        <Popover content={content} title="Ивенты" trigger="click">
                        <Button type='primary' shape='circle' className='Month__table-button-filled'>{inputRow}</Button>
                        </Popover>
@@ -107,7 +109,7 @@ function tableRow(monthNumber,rowNumber) {
             }
             else
             {
-                return <td className='circle circle--empty'>
+                return <td className='circle circle--empty' key={inputRow.id}>
                        <Popover content={content} title="Ивенты" trigger="click">
                        <Button shape='circle' className='Month__table-button-empty'>{inputRow}</Button>
                        </Popover>
