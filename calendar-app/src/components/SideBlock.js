@@ -33,7 +33,7 @@ class SideBlock extends React.Component {
             body: JSON.stringify({"filters": [{"field":"id","value":"0c6433a9-796f-40de-bf40-95e231b84ae0","exp": "=="}],"fetch":"full_name","pageSize": 200})
         });
 
-        getHolidays_1();
+        getHolidays_promise();
 
         return promise
         .then((x) => x.json())
@@ -83,35 +83,26 @@ class SideBlock extends React.Component {
 export default SideBlock;
 
 
-function getHolidays() {
-    let promise;
-    let holidays = [];
-    promise = fetch('https://vacations.directual.com/good/api/v3/struct/oracle_holidays/search?appId=4cdfef0a-7fe4-4ba1-9507-ddb946585f5c&appKey=NNgDjmFSguR', {
+ function getHolidays() {
+    return fetch('https://vacations.directual.com/good/api/v3/struct/oracle_holidays/search?appId=4cdfef0a-7fe4-4ba1-9507-ddb946585f5c&appKey=NNgDjmFSguR', {
             method: 'POST',
             body: JSON.stringify({"filters":[{"field":"weekend_flag_front","value":"Y","exp":"=="},{"field":"year","value":2018,"exp":"=="}],"fields":"calendar_date","pageSize":400})
-        });
-
-    promise
-    .then((x) => {console.log('1'); return x.json()})
-    .then((y) => {
-        console.log('2');
-        let v = y.result.list;
-        for (let i=0;i<v.length;i++) {
-            holidays = holidays.concat(v[i].obj.calendar_date);
-            console.log(holidays);
-        }
-        console.log(holidays);
-        return true;
-    })
+        })
+    .then((result) => {return result.json()})
+    .then((json) => {return json.result.list;})
     .catch(error => {console.log(error,'3')});
-
-    console.log(holidays,'4');  
-    console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
-    return holidays;    
 }
 
-function getHolidays_1 () {
-    let a = getHolidays();
-    console.log('B');
-    console.log(a);
+async function getHolidays_promise() {
+    let a = await getHolidays();
+    parse_promise_data(a);
+}
+
+function parse_promise_data(a) {
+    let promise_data = a;
+    let holidays = [];
+    for (let i=0;i<promise_data.length;i++) {
+        holidays = holidays.concat(new Date(promise_data[i].obj.calendar_date));
+    }
+    console.log(holidays);
 }

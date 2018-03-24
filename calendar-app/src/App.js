@@ -7,8 +7,6 @@ import SideBlock from './components/SideBlock';
 import MainBlockMonth from './components/MainBlockMonth';
 
 
-
-
 class App extends React.Component {
   constructor(props) {
     super(props);
