@@ -83,15 +83,15 @@ function getDays(monthNumber) {
 
     //Добавляем даты из предыдущего месяца
     for (let i=a;i < previousMonthDays.length; i++) {       
-        days = days.concat(previousMonthDays[i].getDate());
+        days = days.concat(previousMonthDays[i]);
     }
     //Добавляем даты из текущего месяцаэ
     for (let i=0;i < thisMonthDays.length; i++) {       
-        days = days.concat(thisMonthDays[i].getDate());
+        days = days.concat(thisMonthDays[i]);
     }
     //Добавляем даты из следующего месяца
     for (let i=0;i < b; i++) {       
-        days = days.concat(nextMonthDays[i].getDate());
+        days = days.concat(nextMonthDays[i]);
     }   
     return days;
 }
@@ -99,6 +99,7 @@ function getDays(monthNumber) {
 //Клеим строки для таблицы из массива дат
 function tableRow(monthNumber,rowNumber,holidays) {
     const days = getDays(monthNumber);
+    console.log(days);
     let inputRow = [];
     let row =[];
     const end = 7*rowNumber-1;
@@ -120,16 +121,16 @@ function tableRow(monthNumber,rowNumber,holidays) {
             }
             else
             {                
-                    if (holidays.includes((new Date(2018,monthNumber,inputRow+1)).toISOString().split('T')[0])) {
+                    if (holidays.includes((new Date(2018,inputRow.getMonth(),inputRow.getDate() + 1)).toISOString().split('T')[0])) {
                        return <td className='circle circle--empty' key={inputRow.id}>
                        <Popover content={content} title="Ивенты" trigger="click">
-                       <Button shape='circle' className='Month__table-button-empty circle--holiday'>{inputRow}</Button>
+                       <Button shape='circle' className='Month__table-button-empty circle--holiday'>{inputRow.getDate()}</Button>
                        </Popover>
                        </td>
                     } else {
                         return <td className='circle circle--empty' key={inputRow.id}>
                         <Popover content={content} title="Ивенты" trigger="click">
-                        <Button shape='circle' className='Month__table-button-empty'>{inputRow}</Button>
+                        <Button shape='circle' className='Month__table-button-empty'>{inputRow.getDate()}</Button>
                         </Popover>
                         </td>
                     }                   
