@@ -7,13 +7,12 @@ class MainBlock extends React.Component {
   constructor(props) {
     super(props);
     this.getHolidays = this.getHolidays.bind(this);
-    // this.getHolidays_promise = this.getHolidays_promise.bind(this);
     this.parse_promise_data = this.parse_promise_data.bind(this);
-    // this.getWeekends_promise = this.getWeekends_promise.bind(this);
     this.getWeekends = this.getWeekends.bind(this);
     this.state = {holidays:[], weekends:[]};
   }  
 
+  //Тащим массив праздников с платформы. Тут получаем promise и парсим его
   getHolidays() {
     return fetch('https://vacations.directual.com/good/api/v3/struct/oracle_holidays/search?appId=4cdfef0a-7fe4-4ba1-9507-ddb946585f5c&appKey=NNgDjmFSguR', {
             method: 'POST',
@@ -23,6 +22,7 @@ class MainBlock extends React.Component {
         .then((json) => {return json.result.list;})
         .catch(error => {console.log(error,'error')});;
   }
+  //Тащим массив выходных дней с платформы. Тут получаем promise и парсим его
   getWeekends() {
     return fetch('https://vacations.directual.com/good/api/v3/struct/oracle_holidays/search?appId=4cdfef0a-7fe4-4ba1-9507-ddb946585f5c&appKey=NNgDjmFSguR', {
             method: 'POST',
@@ -32,6 +32,7 @@ class MainBlock extends React.Component {
         .then((json) => {return json.result.list;})
         .catch(error => {console.log(error,'error')});;
   }
+  //Ждем завершения обоих запросов. Парсим промисы дальше, чтобы с датами было удобно работать. Записываем результаты в state
   parse_promise_data() {
     let holidays = [];
     let weekends = [];
@@ -46,6 +47,7 @@ class MainBlock extends React.Component {
       this.setState({holidays:holidays, weekends:weekends});
     })
   }
+  //Запускаем цепочку функций для подтягивания дат с платформы
   componentWillMount() {
     this.parse_promise_data();
   }
@@ -53,9 +55,7 @@ class MainBlock extends React.Component {
    render() {
       return (       
         <div className='MainBlock'>
-        {console.log('in render', this.state.holidays, this.state.weekends)}
         {this.state.holidays.length > 0 && this.state.weekends.length > 0  ? <div>
-          {console.log(this.state.holidays.length, 'launched Month',this.state.weekends.length)}
           <p className='year'>2018</p>
           <div>
             <div className='month'><Month month={0} holidays={this.state.holidays} weekends={this.state.weekends}/></div> 
@@ -75,7 +75,7 @@ class MainBlock extends React.Component {
             <div className='month'><Month month={10} holidays={this.state.holidays} weekends={this.state.weekends}/></div>
             <div className='month'><Month month={11} holidays={this.state.holidays} weekends={this.state.weekends}/></div>
           </div>  
-         </div> : <h1> loading...{console.log('loading')} </h1> 
+         </div> : <h1> loading... </h1> 
         } 
         </div> 
                    

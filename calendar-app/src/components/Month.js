@@ -51,30 +51,29 @@ function getMonthName (monthNumber){
 //Получаем список дней из месяца
 function getDaysInMonth(month, year) {
     let date = new Date(Date.UTC(year, month, 1));
-    console.log(date,'получившаяся дата');
     let days = [];
     while (date.getMonth() === month) {
        days.push(new Date(date));
        date.setDate(date.getDate() + 1);
     }
-    console.log(days, 'результат');
     return days;
 }
 
 //Получаем полный массив дат для для отображения месяца 
 function getDays(monthNumber) {
-    let days = ['MON','TUE','WED','THU','FRI','SAT','SUN'];    
-    const thisMonthNumber = new Date(2018,monthNumber,1).getMonth();
+    //Начало массива
+    let days = ['MON','TUE','WED','THU','FRI','SAT','SUN'];  
+    //Нужные номера месяцев(до,текущий и после)  
+    const thisMonthNumber = new Date(Date.UTC(2018,monthNumber,1)).getMonth();
     const previousMonthNumber = thisMonthNumber - 1;
     const nextMonthNumber = thisMonthNumber + 1;
+    //Номер дня в недели первого числа текущего месяца
     let dayOfWeek = new Date(Date.UTC(2018,monthNumber,1)).getDay();
-    console.log(dayOfWeek, 'dayofweek 1');
-    console.log(previousMonthNumber, 'prev month number');
+    //Для воскресенья вместо 0 делаем 7
     if (dayOfWeek === 0) {dayOfWeek = 7;};
-    console.log(dayOfWeek, 'dayofweek 2');
-    console.log(thisMonthNumber, 'thisMonthNumber 2');
+
+    //Получаем массив дат для прошлого,текущего и следующего месяца
     const thisMonthDays = getDaysInMonth(thisMonthNumber, 2018);
-    console.log(thisMonthDays,'thisMonthDays');
     let previousMonthDays; 
     if (previousMonthNumber === -1) {
         previousMonthDays = getDaysInMonth(11, 2017)
@@ -82,7 +81,6 @@ function getDays(monthNumber) {
     else {
         previousMonthDays = getDaysInMonth(previousMonthNumber, 2018);
     }    
-    console.log(previousMonthDays,'prev month days');
     let nextMonthDays;
     if (nextMonthNumber === 12) {
         nextMonthDays = getDaysInMonth(0, 2019);
@@ -90,10 +88,10 @@ function getDays(monthNumber) {
     else {
         nextMonthDays = getDaysInMonth(nextMonthNumber, 2018);
     }
-    console.log(nextMonthDays,'nextMonthDays');
+
+    //Сколько дней надо взять из предыдущего месяца и следующего
     const a = previousMonthDays.length-dayOfWeek+1;
     const b = 42 - thisMonthDays.length-dayOfWeek+1;
-    console.log(a,b, 'кол-во дней до и после')
 
     //Добавляем даты из предыдущего месяца
     for (let i=a;i < previousMonthDays.length; i++) {       
@@ -113,19 +111,24 @@ function getDays(monthNumber) {
 //Клеим строки для таблицы из массива дат
 function tableRow(monthNumber,rowNumber,holidays,weekneds) {
     const days = getDays(monthNumber);
-    console.log(days);
     let inputRow = [];
     let row =[];
+    //Получаем номера первого и последнего элементов из нужного блока в общем массиве дат (в зависимости от номера строки)
     const end = 7*rowNumber-1;
     let start = end-6;
+    //Собираем все это в отдельный массив
     for (start;start<=end;start++) {
         inputRow = inputRow.concat(days[start]);
     }
+    
+    //Превращаем массив дат в ячейки таблицы
     if (rowNumber === 1) {
+        // Если месяц первый - то это заголовки
         row = inputRow.map((inputRow) => <th key={inputRow.id}>{inputRow}</th>)
     } 
     else {
         row = inputRow.map((inputRow) => { 
+            // Если текущая дата - выделить синим
             if (monthNumber === new Date(Date.UTC()).getMonth() && inputRow === new Date(Date.UTC()).getDate()) {
                 return <td className='circle circle--filled' key={inputRow.id}>
                        <Popover content={content} title="Ивенты" trigger="click">
@@ -134,7 +137,8 @@ function tableRow(monthNumber,rowNumber,holidays,weekneds) {
                        </td>               
             }
             else
-            {                
+            {   
+                // Иначе, все остальный дни сначала проверяются на попадание в массив праздников             
                 if (holidays.includes((new Date(Date.UTC(2018,inputRow.getMonth(),inputRow.getDate() ))).toISOString().split('T')[0])) 
                     {
                     return <td className='circle circle--empty' key={inputRow.id}>
@@ -143,7 +147,9 @@ function tableRow(monthNumber,rowNumber,holidays,weekneds) {
                     </Popover>
                     </td>
                     } 
-                    else if (weekneds.includes((new Date(Date.UTC(2018,inputRow.getMonth(),inputRow.getDate() ))).toISOString().split('T')[0])) 
+                    else if 
+                    // Потом проверяются на попадание в массив выходных
+                    (weekneds.includes((new Date(Date.UTC(2018,inputRow.getMonth(),inputRow.getDate() ))).toISOString().split('T')[0])) 
                     {
                         return <td className='circle circle--empty' key={inputRow.id}>
                         <Popover content={content} title="Ивенты" trigger="click">
@@ -153,6 +159,7 @@ function tableRow(monthNumber,rowNumber,holidays,weekneds) {
                     } 
                     else 
                     {
+                        //Все что осталось обрабатывается тут
                         return <td className='circle circle--empty' key={inputRow.id}>
                         <Popover content={content} title="Ивенты" trigger="click">
                         <Button shape='circle' className='Month__table-button-empty'>{inputRow.getDate()}</Button>
