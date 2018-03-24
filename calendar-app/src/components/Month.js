@@ -128,11 +128,12 @@ function tableRow(monthNumber,rowNumber,holidays,weekneds) {
     } 
     else {
         row = inputRow.map((inputRow) => { 
-            // Если текущая дата - выделить синим
-            if (monthNumber === new Date(Date.UTC()).getMonth() && inputRow === new Date(Date.UTC()).getDate()) {
+            // Если текущая дата - выделить синим monthNumber === new Date(Date.UTC()).getMonth() && 
+            if (inputRow.getDate() === new Date().getDate() && monthNumber === new Date().getMonth()) {
+                console.log(inputRow);
                 return <td className='circle circle--filled' key={inputRow.id}>
                        <Popover content={content} title="Ивенты" trigger="click">
-                       <Button type='primary' shape='circle' className='Month__table-button-filled'>{inputRow}</Button>
+                       <Button type='primary' shape='circle' className='Month__table-button-filled'>{inputRow.getDate()}</Button>
                        </Popover>
                        </td>               
             }
