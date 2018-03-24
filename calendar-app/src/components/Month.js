@@ -10,6 +10,7 @@ const content = (
   );  
  
 let holidays_input; 
+let weekneds_input;
   
 class Month extends React.Component { 
     constructor(props) {
@@ -18,12 +19,12 @@ class Month extends React.Component {
       
       componentWillMount() {
           holidays_input = this.props.holidays;
+          weekneds_input = this.props.weekends;
       }
 
       render() {
       return (
         <div>
-            {console.log(this.props,'render')}
             <table>
                 <caption>{getMonthName(this.props.month)}</caption>
                 <tbody>
@@ -99,7 +100,6 @@ function getDays(monthNumber) {
 //Клеим строки для таблицы из массива дат
 function tableRow(monthNumber,rowNumber,holidays) {
     const days = getDays(monthNumber);
-    console.log(days);
     let inputRow = [];
     let row =[];
     const end = 7*rowNumber-1;
