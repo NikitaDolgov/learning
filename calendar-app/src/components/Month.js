@@ -16,13 +16,13 @@ class Month extends React.Component {
             <table>
                 <caption>{getMonthName(this.props.month)}</caption>
                 <tbody>
-                {tableRow(this.props.month,1)}
-                {tableRow(this.props.month,2)}
-                {tableRow(this.props.month,3)}
-                {tableRow(this.props.month,4)}
-                {tableRow(this.props.month,5)}
-                {tableRow(this.props.month,6)}
-                {tableRow(this.props.month,7)}
+                {tableRow(this.props.month,1,this.props.holidays)}
+                {tableRow(this.props.month,2,this.props.holidays)}
+                {tableRow(this.props.month,3,this.props.holidays)}
+                {tableRow(this.props.month,4,this.props.holidays)}
+                {tableRow(this.props.month,5,this.props.holidays)}
+                {tableRow(this.props.month,6,this.props.holidays)}
+                {tableRow(this.props.month,7,this.props.holidays)}
                 </tbody>
             </table>
         </div>
@@ -86,7 +86,8 @@ function getDays(monthNumber) {
 }
 
 //Клеим строки для таблицы из массива дат
-function tableRow(monthNumber,rowNumber) {
+function tableRow(monthNumber,rowNumber,holidays) {
+    console.log('Month builder',holidays);
     const days = getDays(monthNumber);
     let inputRow = [];
     let row =[];
