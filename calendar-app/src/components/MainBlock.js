@@ -13,12 +13,11 @@ class MainBlock extends React.Component {
     this.state = {holidays:[]};
   }  
 
-  holidays = this.getHolidays_promise();
-
   async getHolidays_promise() {
     let a = await this.getHolidays();
     let result = this.parse_promise_data(a);
-    this.setState({holidays:result})
+    console.log('Main', result);
+    this.setState({holidays:result});
     return result;
   }
   getHolidays() {
@@ -39,31 +38,35 @@ class MainBlock extends React.Component {
     return holidays;
   }
 
+  holidays = this.getHolidays_promise();
+
    render() {
       return (
         
         <div className='MainBlock'>
-        { this.state.holidays.length === 107  ? <div>
+        {console.log('in render', this.state.holidays, 'in render')}
+        {this.state.holidays.length > 0  ? <div>
+          {console.log(this.state.holidays.length, 'launched Month')}
           <p className='year'>2018</p>
           <div>
             <div className='month'><Month month={0} holidays={this.state.holidays} /></div> 
-            <div className='month'><Month month={1} /></div>    
-            <div className='month'><Month month={2} /></div> 
-            <div className='month'><Month month={3} /></div> 
+            {/* <div className='month'><Month month={1} /></div>     */}
+            {/* <div className='month'><Month month={2} /></div>  */}
+            {/* <div className='month'><Month month={3} /></div>  */}
           </div>
           <div>
-            <div className='month'><Month month={4} /></div> 
-            <div className='month'><Month month={5} /></div>    
-            <div className='month'><Month month={6} /></div> 
-            <div className='month'><Month month={7} /></div> 
+            {/* <div className='month'><Month month={4} /></div>  */}
+            {/* <div className='month'><Month month={5} /></div>     */}
+            {/* <div className='month'><Month month={6} /></div>  */}
+            {/* <div className='month'><Month month={7} /></div>  */}
           </div>
           <div>
-            <div className='month'><Month month={8} /></div> 
-            <div className='month'><Month month={9} /></div>    
-            <div className='month'><Month month={10} /></div>
-            <div className='month'><Month month={11} /></div>
+            {/* <div className='month'><Month month={8} /></div>  */}
+            {/* <div className='month'><Month month={9} /></div>     */}
+            {/* <div className='month'><Month month={10} /></div> */}
+            {/* <div className='month'><Month month={11} /></div> */}
           </div>  
-         </div> : <h1> loading... </h1> 
+         </div> : <h1> loading...{console.log('loading')} </h1> 
         } 
         </div> 
                    

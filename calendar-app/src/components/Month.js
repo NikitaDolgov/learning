@@ -9,20 +9,31 @@ const content = (
     </div>
   );  
  
-class Month extends React.Component {   
-    render() {
+let holidays_input; 
+  
+class Month extends React.Component { 
+    constructor(props) {
+        super(props)
+      }  
+      
+      componentWillMount() {
+          holidays_input = this.props.holidays;
+      }
+
+      render() {
       return (
         <div>
+            {console.log(this.props,'render')}
             <table>
                 <caption>{getMonthName(this.props.month)}</caption>
                 <tbody>
-                {tableRow(this.props.month,1,this.props.holidays)}
-                {tableRow(this.props.month,2,this.props.holidays)}
-                {tableRow(this.props.month,3,this.props.holidays)}
-                {tableRow(this.props.month,4,this.props.holidays)}
-                {tableRow(this.props.month,5,this.props.holidays)}
-                {tableRow(this.props.month,6,this.props.holidays)}
-                {tableRow(this.props.month,7,this.props.holidays)}
+                {tableRow(this.props.month,1,holidays_input)}
+                {tableRow(this.props.month,2,holidays_input)}
+                {tableRow(this.props.month,3,holidays_input)}
+                {tableRow(this.props.month,4,holidays_input)}
+                {tableRow(this.props.month,5,holidays_input)}
+                {tableRow(this.props.month,6,holidays_input)}
+                {tableRow(this.props.month,7,holidays_input)}
                 </tbody>
             </table>
         </div>
@@ -87,7 +98,7 @@ function getDays(monthNumber) {
 
 //Клеим строки для таблицы из массива дат
 function tableRow(monthNumber,rowNumber,holidays) {
-    console.log('Month builder',holidays);
+    console.log(holidays, 'construct table');
     const days = getDays(monthNumber);
     let inputRow = [];
     let row =[];
@@ -109,12 +120,22 @@ function tableRow(monthNumber,rowNumber,holidays) {
                        </td>               
             }
             else
-            {
-                return <td className='circle circle--empty' key={inputRow.id}>
+            {   for (let z=0;z<holidays.length;z++) {
+                    if (monthNumber === holidays[z].getMonth()-1 && inputRow === holidays[z].getDate() && holidays.getYear() === 2018) {
+                       return <td className='circle circle--empty' key={inputRow.id}>
                        <Popover content={content} title="Ивенты" trigger="click">
-                       <Button shape='circle' className='Month__table-button-empty'>{inputRow}</Button>
+                       <Button shape='circle' className='Month__table-button-empty circle--holiday'>{inputRow}</Button>
                        </Popover>
                        </td>
+                    } else {
+                        return <td className='circle circle--empty' key={inputRow.id}>
+                        <Popover content={content} title="Ивенты" trigger="click">
+                        <Button shape='circle' className='Month__table-button-empty'>{inputRow}</Button>
+                        </Popover>
+                        </td>
+                    }
+                }    
+                
             }
         })
     }

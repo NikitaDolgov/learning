@@ -71,7 +71,7 @@ class SideBlock extends React.Component {
                         <Button className='SideBlock__buttons'><p className=''> &#62; </p></Button>
                     </ButtonGroup>
                     </div>
-                    <div className='SideBlock__month'><Month month={3} /></div>
+                    {/* <div className='SideBlock__month'><Month month={3} /></div> */}
                 </div>
             </div>
         ); 
