@@ -98,7 +98,6 @@ function getDays(monthNumber) {
 
 //Клеим строки для таблицы из массива дат
 function tableRow(monthNumber,rowNumber,holidays) {
-    console.log(holidays, 'construct table');
     const days = getDays(monthNumber);
     let inputRow = [];
     let row =[];
@@ -120,8 +119,8 @@ function tableRow(monthNumber,rowNumber,holidays) {
                        </td>               
             }
             else
-            {   for (let z=0;z<holidays.length;z++) {
-                    if (monthNumber === holidays[z].getMonth()-1 && inputRow === holidays[z].getDate() && holidays.getYear() === 2018) {
+            {                
+                    if (holidays.includes((new Date(2018,monthNumber,inputRow+1)).toISOString().split('T')[0])) {
                        return <td className='circle circle--empty' key={inputRow.id}>
                        <Popover content={content} title="Ивенты" trigger="click">
                        <Button shape='circle' className='Month__table-button-empty circle--holiday'>{inputRow}</Button>
@@ -133,9 +132,7 @@ function tableRow(monthNumber,rowNumber,holidays) {
                         <Button shape='circle' className='Month__table-button-empty'>{inputRow}</Button>
                         </Popover>
                         </td>
-                    }
-                }    
-                
+                    }                   
             }
         })
     }

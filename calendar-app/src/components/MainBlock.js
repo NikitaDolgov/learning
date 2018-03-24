@@ -23,7 +23,7 @@ class MainBlock extends React.Component {
   getHolidays() {
     return fetch('https://vacations.directual.com/good/api/v3/struct/oracle_holidays/search?appId=4cdfef0a-7fe4-4ba1-9507-ddb946585f5c&appKey=NNgDjmFSguR', {
             method: 'POST',
-            body: JSON.stringify({"filters":[{"field":"weekend_flag_front","value":"Y","exp":"=="},{"field":"year","value":2018,"exp":"=="}],"fields":"calendar_date","pageSize":400})
+            body: JSON.stringify({"filters":[{"field":"holiday_flag_front","value":"Y","exp":"=="},{"field":"year","value":2018,"exp":"=="}],"fields":"calendar_date","pageSize":400})
         })
     .then((result) => {return result.json()})
     .then((json) => {return json.result.list;})
@@ -33,7 +33,7 @@ class MainBlock extends React.Component {
     let holidays =[];
     let promise_data = a;
     for (let i=0;i<promise_data.length;i++) {
-        holidays = holidays.concat(new Date(promise_data[i].obj.calendar_date));
+        holidays = holidays.concat((new Date(promise_data[i].obj.calendar_date)).toISOString().split('T')[0]);
     }
     return holidays;
   }
@@ -50,21 +50,21 @@ class MainBlock extends React.Component {
           <p className='year'>2018</p>
           <div>
             <div className='month'><Month month={0} holidays={this.state.holidays} /></div> 
-            {/* <div className='month'><Month month={1} /></div>     */}
-            {/* <div className='month'><Month month={2} /></div>  */}
-            {/* <div className='month'><Month month={3} /></div>  */}
+            <div className='month'><Month month={1} holidays={this.state.holidays}/></div>    
+            <div className='month'><Month month={2} holidays={this.state.holidays}/></div> 
+            <div className='month'><Month month={3} holidays={this.state.holidays}/></div> 
           </div>
           <div>
-            {/* <div className='month'><Month month={4} /></div>  */}
-            {/* <div className='month'><Month month={5} /></div>     */}
-            {/* <div className='month'><Month month={6} /></div>  */}
-            {/* <div className='month'><Month month={7} /></div>  */}
+            <div className='month'><Month month={4} holidays={this.state.holidays}/></div> 
+            <div className='month'><Month month={5} holidays={this.state.holidays}/></div>    
+            <div className='month'><Month month={6} holidays={this.state.holidays}/></div> 
+            <div className='month'><Month month={7} holidays={this.state.holidays}/></div> 
           </div>
           <div>
-            {/* <div className='month'><Month month={8} /></div>  */}
-            {/* <div className='month'><Month month={9} /></div>     */}
-            {/* <div className='month'><Month month={10} /></div> */}
-            {/* <div className='month'><Month month={11} /></div> */}
+            <div className='month'><Month month={8} holidays={this.state.holidays}/></div> 
+            <div className='month'><Month month={9} holidays={this.state.holidays}/></div>    
+            <div className='month'><Month month={10} holidays={this.state.holidays}/></div>
+            <div className='month'><Month month={11} holidays={this.state.holidays}/></div>
           </div>  
          </div> : <h1> loading...{console.log('loading')} </h1> 
         } 
