@@ -41,31 +41,19 @@
     letter-spacing: -0.3px;
     color: #575757;
 }
-.SideBlock__month caption{
-    color: white;
-    caption-side: bottom;
-}
-.SideBlock__month .circle--empty{
-    background: #f8f8f8;
-}
-.SideBlock__month .circle {
-    border-radius: 100%;
-    width: 10px;
-    height: 10px;
-}
-.SideBlock__buttons{
+.SideBlock__buttons {
     border: 0px;
     background: #f8f8f8;
+    height:20px;
+    line-height: 20px;
+}
+.SideBlock__arrow {
+    height: 20px;
 }
 .SideBlock__month-name {
     margin-left: 10px;
 }
 
-.SideBlock__month .Month__table-button-empty {
-    background: #f8f8f8;
-    width: 20px;
-    height: 20px;
-}
 
 .todel {
     margin-left: 40px;

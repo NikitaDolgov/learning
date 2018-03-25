@@ -2,6 +2,7 @@ import React from 'react';
 import { Checkbox, Button, Popover } from 'antd';
 import './SideBlock.css';
 import Month from '../Month/Month';
+import SmallMonth from '../SmallMonth/SmallMonth';
 
 const ButtonGroup = Button.Group;
 const content = (
@@ -68,12 +69,12 @@ class SideBlock extends React.Component {
                 <div className='small-month'>
                     <div className='SideBlock__month-name'> 
                     <ButtonGroup>
-                        <Button className='SideBlock__buttons'><p className=''> &#60; </p></Button>
-                        <Button className='SideBlock__buttons'><p className=''>Апрель</p></Button>
-                        <Button className='SideBlock__buttons'><p className=''> &#62; </p></Button>
+                        <Button className='SideBlock__buttons'><div className='SideBlock__arrow'>&#60;</div></Button>
+                        <Button className='SideBlock__buttons'>Март</Button>
+                        <Button className='SideBlock__buttons'>&#62;</Button>
                     </ButtonGroup>
                     </div>
-                    {/* <div className='SideBlock__month'><Month month={3} /></div> */}
+                    <div><SmallMonth month={2} /></div>
                 </div>
             </div>
         ); 
