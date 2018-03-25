@@ -1,6 +1,7 @@
 import React from 'react';
 import './MainBlock.css';
 import Month from './Month';
+import { Spin } from 'antd';
 
 
 class MainBlock extends React.Component {
@@ -75,7 +76,7 @@ class MainBlock extends React.Component {
             <div className='month'><Month month={10} holidays={this.state.holidays} weekends={this.state.weekends}/></div>
             <div className='month'><Month month={11} holidays={this.state.holidays} weekends={this.state.weekends}/></div>
           </div>  
-         </div> : <h1> loading... </h1> 
+         </div> : <h1 className='MainBlock__loading'>  <Spin size="large" /> loading... </h1> 
         } 
         </div> 
                    
