@@ -9,32 +9,22 @@ const content = (
     </div>
   );  
  
-let holidays_input; 
-let weekneds_input;
   
 class Month extends React.Component { 
-    constructor(props) {
-        super(props)
-      }  
-      
-      componentWillMount() {
-          holidays_input = this.props.holidays;
-          weekneds_input = this.props.weekends;
-      }
-
       render() {
+      const {month , holidays, weekends} = this.props;
       return (
         <div>
             <table>
-                <caption>{getMonthName(this.props.month)}</caption>
+                <caption>{getMonthName(month)}</caption>
                 <tbody>
-                {tableRow(this.props.month,1,holidays_input,weekneds_input)}
-                {tableRow(this.props.month,2,holidays_input,weekneds_input)}
-                {tableRow(this.props.month,3,holidays_input,weekneds_input)}
-                {tableRow(this.props.month,4,holidays_input,weekneds_input)}
-                {tableRow(this.props.month,5,holidays_input,weekneds_input)}
-                {tableRow(this.props.month,6,holidays_input,weekneds_input)}
-                {tableRow(this.props.month,7,holidays_input,weekneds_input)}
+                {tableRow(month,1,holidays,weekends)}
+                {tableRow(month,2,holidays,weekends)}
+                {tableRow(month,3,holidays,weekends)}
+                {tableRow(month,4,holidays,weekends)}
+                {tableRow(month,5,holidays,weekends)}
+                {tableRow(month,6,holidays,weekends)}
+                {tableRow(month,7,holidays,weekends)}
                 </tbody>
             </table>
         </div>
