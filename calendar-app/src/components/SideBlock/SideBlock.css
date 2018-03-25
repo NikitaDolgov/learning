@@ -47,6 +47,14 @@
     height:20px;
     line-height: 20px !important;
 }
+.SideBlock__buttons.ant-btn-clicked {
+    background:  #f8f8f8;
+    border-color:   #f8f8f8;
+}
+.SideBlock__buttons.ant-btn:focus{
+    background:  #f8f8f8;
+    border-color:   #f8f8f8;
+}
 .SideBlock__arrow {
     height: 20px;
 }
