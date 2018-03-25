@@ -1,7 +1,7 @@
 import React from 'react';
 import { Checkbox, Button, Popover } from 'antd';
 import './SideBlock.css';
-import Month from './Month';
+import Month from '../Month/Month';
 
 const ButtonGroup = Button.Group;
 const content = (

@@ -1,7 +1,7 @@
 import React from 'react';
-import './MainBlockMonth.css';
+import './MainBlockMonthView.css';
 
-class MainBlockMonth extends React.Component {
+class MainBlockMonthView extends React.Component {
     render() {
       return (
         <div>
@@ -12,4 +12,4 @@ class MainBlockMonth extends React.Component {
     }
   }
   
-  export default MainBlockMonth;
+  export default MainBlockMonthView;

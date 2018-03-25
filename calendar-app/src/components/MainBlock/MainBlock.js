@@ -1,6 +1,6 @@
 import React from 'react';
 import './MainBlock.css';
-import Month from './Month';
+import Month from '../Month/Month';
 import { Spin } from 'antd';
 
 
