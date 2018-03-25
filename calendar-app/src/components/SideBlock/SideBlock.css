@@ -21,7 +21,7 @@
 }
 .small-month {
     height: 203px;
-    margin-left: 15px;
+    margin-left: 45px;
 }
 
 .calendars {
@@ -45,7 +45,7 @@
     border: 0px;
     background: #f8f8f8;
     height:20px;
-    line-height: 20px;
+    line-height: 20px !important;
 }
 .SideBlock__arrow {
     height: 20px;
