@@ -18,10 +18,12 @@ const content = (
   );
 
   let promise;
+  let month_state;
 
 class SideBlock extends React.Component {
     state = {
-        full_name:''
+        full_name:'',
+        month: new Date().getMonth(),
     }
     
 
@@ -42,6 +44,15 @@ class SideBlock extends React.Component {
 
         
     }
+
+    onLeftArrowClick = () => () => {
+        month_state = this.state.month-1;
+        this.setState({month: month_state})
+    }
+    onRightArrowClick = () => () => {
+        month_state = this.state.month+1;
+        this.setState({month: month_state})
+    }
     
 
     render (){
@@ -61,19 +72,19 @@ class SideBlock extends React.Component {
                         </Popover>
                     </div> 
                     <div className='todel-a'>
-                        <Button onClick={this.onToggleClick()}className='button-to-del'>Запрос к Кевину</Button>
+                        <Button onClick={this.onToggleClick()} className='button-to-del'>Запрос к Кевину</Button>
                     </div>
                 </div>  
                 <hr className='line'></hr>
                 <div className='small-month'>
                     <div className='SideBlock__month-name'> 
                     <ButtonGroup>
-                        <Button className='SideBlock__buttons'><div className='SideBlock__arrow'>&#60;</div></Button>
+                        <Button onClick={this.onLeftArrowClick()} className='SideBlock__buttons'>&#60;</Button>
                         <Button className='SideBlock__buttons'>Март</Button>
-                        <Button className='SideBlock__buttons'>&#62;</Button>
+                        <Button onClick={this.onRightArrowClick()} className='SideBlock__buttons'>&#62;</Button>
                     </ButtonGroup>
                     </div>
-                    <div><SmallMonth month={2} /></div>
+                    <div><SmallMonth month={this.state.month} /></div>
                 </div>
             </div>
         ); 

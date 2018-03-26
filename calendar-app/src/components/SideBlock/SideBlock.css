@@ -62,9 +62,6 @@
 .SideBlock__buttons.ant-btn::after{
     border-color:   #f8f8f8;
 }
-.SideBlock__arrow {
-    height: 20px;
-}
 .SideBlock__month-name {
     margin-left: 10px;
 }
