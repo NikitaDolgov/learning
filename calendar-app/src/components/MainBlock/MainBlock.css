@@ -9,7 +9,7 @@
     width: 100%;
 }
 
-.year {
+.MainBlock__year {
     width: 66px;
     height: 32px;
     font-family: HelveticaNeue;
@@ -24,8 +24,15 @@
     margin-bottom: 0px;
     margin-top: 10px;
     margin-left: 37px;
+    display: inline-block;
 }
 .MainBlock__loading {
     margin-left: 500px;
     margin-top: 300px;
+}
+.MainBlock__dates-invisible {
+    height: 32px;
+    width: 66px;
+    display: inline-block;
+    margin-left: 800px;
 }

@@ -12,19 +12,20 @@ const content = (
   
 class Month extends React.Component { 
       render() {
-      const {month , holidays, weekends} = this.props;
+      const {month , holidays, weekends, visible} = this.props;
+      console.log(month , holidays, weekends, visible);
       return (
         <div>
             <table>
                 <caption>{getMonthName(month)}</caption>
                 <tbody>
-                {tableRow(month,1,holidays,weekends)}
-                {tableRow(month,2,holidays,weekends)}
-                {tableRow(month,3,holidays,weekends)}
-                {tableRow(month,4,holidays,weekends)}
-                {tableRow(month,5,holidays,weekends)}
-                {tableRow(month,6,holidays,weekends)}
-                {tableRow(month,7,holidays,weekends)}
+                {tableRow(month,1,holidays,weekends,visible)}
+                {tableRow(month,2,holidays,weekends,visible)}
+                {tableRow(month,3,holidays,weekends,visible)}
+                {tableRow(month,4,holidays,weekends,visible)}
+                {tableRow(month,5,holidays,weekends,visible)}
+                {tableRow(month,6,holidays,weekends,visible)}
+                {tableRow(month,7,holidays,weekends,visible)}
                 </tbody>
             </table>
         </div>
@@ -99,7 +100,7 @@ function getDays(monthNumber) {
 }
 
 //Клеим строки для таблицы из массива дат
-function tableRow(monthNumber,rowNumber,holidays,weekneds) {
+function tableRow(monthNumber,rowNumber,holidays,weekneds,visible) {
     const days = getDays(monthNumber);
     let inputRow = [];
     let row =[];
@@ -116,50 +117,48 @@ function tableRow(monthNumber,rowNumber,holidays,weekneds) {
         // Если месяц первый - то это заголовки
         row = inputRow.map((inputRow) => <th key={inputRow.id}>{inputRow}</th>)
     } 
-    else {
-        row = inputRow.map((inputRow) => { 
+    else 
+            row = inputRow.map((inputRow) => { 
             // Если текущая дата - выделить синим
-            if (inputRow.getDate() === new Date().getDate() && inputRow.getMonth() === new Date().getMonth()) {
-                console.log(inputRow);
-                return <td className='circle circle--filled' key={inputRow.id}>
-                       <Popover content={content} title="Ивенты" trigger="click">
-                       <Button type='primary' shape='circle' className='Month__table-button-filled'>{inputRow.getDate()}</Button>
-                       </Popover>
-                       </td>               
+            if (inputRow.getDate() === new Date().getDate() && inputRow.getMonth() === new Date().getMonth()) 
+            {
+            return <td className='circle circle--filled' key={inputRow.id}>
+            <Popover content={content} title="Ивенты" trigger="click">
+            <Button type='primary' shape='circle' className='Month__table-button-filled'>{inputRow.getDate()}</Button>
+            </Popover>
+            </td>               
             }
-            else
-            {   
-                // Иначе, все остальный дни сначала проверяются на попадание в массив праздников             
+            else // Иначе, все остальный дни сначала проверяются на попадание в массив праздников             
                 if (holidays.includes((new Date(Date.UTC(2018,inputRow.getMonth(),inputRow.getDate() ))).toISOString().split('T')[0])) 
+                {
+                return <td className='circle circle--empty' key={inputRow.id}>
+                <Popover content={content} title="Ивенты" trigger="click">
+                <Button shape='circle' className='Month__table-button-empty circle--holiday'>{inputRow.getDate()}</Button>
+                </Popover>
+                </td>
+                } 
+                else 
+                    // Потом проверяются на попадание в массив выходных
+                    if (weekneds.includes((new Date(Date.UTC(2018,inputRow.getMonth(),inputRow.getDate() ))).toISOString().split('T')[0])) 
                     {
                     return <td className='circle circle--empty' key={inputRow.id}>
                     <Popover content={content} title="Ивенты" trigger="click">
-                    <Button shape='circle' className='Month__table-button-empty circle--holiday'>{inputRow.getDate()}</Button>
+                    <Button shape='circle' className='Month__table-button-empty circle--weekend'>{inputRow.getDate()}</Button>
                     </Popover>
                     </td>
                     } 
-                    else if 
-                    // Потом проверяются на попадание в массив выходных
-                    (weekneds.includes((new Date(Date.UTC(2018,inputRow.getMonth(),inputRow.getDate() ))).toISOString().split('T')[0])) 
-                    {
-                        return <td className='circle circle--empty' key={inputRow.id}>
-                        <Popover content={content} title="Ивенты" trigger="click">
-                        <Button shape='circle' className='Month__table-button-empty circle--weekend'>{inputRow.getDate()}</Button>
-                        </Popover>
-                        </td>
-                    } 
                     else 
                     {
-                        //Все что осталось обрабатывается тут
-                        return <td className='circle circle--empty' key={inputRow.id}>
-                        <Popover content={content} title="Ивенты" trigger="click">
-                        <Button shape='circle' className='Month__table-button-empty'>{inputRow.getDate()}</Button>
-                        </Popover>
-                        </td>
+                    //Все что осталось обрабатывается тут
+                    return <td className='circle circle--empty' key={inputRow.id}>
+                    <Popover content={content} title="Ивенты" trigger="click">
+                    <Button shape='circle' className='Month__table-button-empty'>{inputRow.getDate()}</Button>
+                    </Popover>
+                    </td>
                     }
-            }                              
-        })
-    }
+                                          
+            })
+        
     return (
         <tr>{row}</tr>
     );
