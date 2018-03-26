@@ -1,0 +1,21 @@
+.MainBlockMonthView__header {
+    width: 1075px;
+    height: 50px;
+}
+.MainBlockMonthView__monthHeader {
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 20px;
+    height: 32px;
+    font-size: 20px;
+}
+.MainBlockMonthView__buttons {
+    margin-left: 700px;
+    display: inline-block;
+}
+.MainBlockMonthView__main {
+    width: 1070px;
+}
+.MainBlockMonthView__month {
+    width: 1070px;    
+}

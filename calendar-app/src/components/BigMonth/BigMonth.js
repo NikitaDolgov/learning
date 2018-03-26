@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Popover } from 'antd';
-import './Month.css';
+import './BigMonth.css';
 
 const content = (
   <div>
@@ -9,22 +9,20 @@ const content = (
   </div>
 );
 
-class Month extends React.Component {
+class BigMonth extends React.Component {
   render() {
-    const { month, holidays, weekends, visible } = this.props;
-    console.log(month, holidays, weekends, visible);
+    const {month} = this.props;
     return (
       <div>
-        <table>
-          <caption>{getMonthName(month)}</caption>
+        <table className='BigMonth__table'>
           <tbody>
-            {tableRow(month, 1, holidays, weekends, visible)}
-            {tableRow(month, 2, holidays, weekends, visible)}
-            {tableRow(month, 3, holidays, weekends, visible)}
-            {tableRow(month, 4, holidays, weekends, visible)}
-            {tableRow(month, 5, holidays, weekends, visible)}
-            {tableRow(month, 6, holidays, weekends, visible)}
-            {tableRow(month, 7, holidays, weekends, visible)}
+            {tableRow(month, 1)}
+            {tableRow(month, 2)}
+            {tableRow(month, 3)}
+            {tableRow(month, 4)}
+            {tableRow(month, 5)}
+            {tableRow(month, 6)}
+            {tableRow(month, 7)}
           </tbody>
         </table>
       </div>
@@ -65,7 +63,7 @@ function getDaysInMonth(month, year) {
 // Получаем полный массив дат для для отображения месяца
 function getDays(monthNumber) {
   // Начало массива
-  let days = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
+  let days = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
   // Нужные номера месяцев(до,текущий и после)
   const thisMonthNumber = new Date(Date.UTC(2018, monthNumber, 1)).getMonth();
   const previousMonthNumber = thisMonthNumber - 1;
@@ -127,63 +125,22 @@ function tableRow(monthNumber, rowNumber, holidays, weekneds, visible) {
   // Превращаем массив дат в ячейки таблицы
   if (rowNumber === 1) {
     // Если месяц первый - то это заголовки
-    row = inputRow.map(inputRow => <th key={inputRow.id}>{inputRow}</th>);
+    row = inputRow.map(inputRow => <th className='BigMonth__th' key={inputRow.id}>{inputRow}</th>);
   } else
     row = inputRow.map(inputRow => {
-    let circleClassName, buttonClassName;
-    if (visible) 
-    {   
+    let circleClassName, buttonClassName; 
         // Если текущая дата - выделить синим
         if (inputRow.getDate() === new Date().getDate() && inputRow.getMonth() === new Date().getMonth()) 
         {
-            circleClassName="circle circle--filled";
-            buttonClassName="Month__table-button-filled";        
-        } else if (holidays.includes(new Date(Date.UTC(2018, inputRow.getMonth(), inputRow.getDate())).toISOString().split('T')[0],)) 
-                {
-                    // Иначе, все остальный дни сначала проверяются на попадание в массив праздников
-                    circleClassName="circle circle--empty";
-                    buttonClassName="Month__table-button-empty circle--holiday"; 
-                } 
-                else if (weekneds.includes(new Date(Date.UTC(2018, inputRow.getMonth(), inputRow.getDate())).toISOString().split('T')[0],)) 
-                    {
-                        // Потом проверяются на попадание в массив выходных      
-                        circleClassName="circle circle--empty";
-                        buttonClassName="Month__table-button-empty circle--weekend";         
-                    } 
-                    else 
-                    {
-                        // Все что осталось обрабатывается тут
-                        circleClassName="circle circle--empty";
-                        buttonClassName="Month__table-button-empty"; 
-                    }
-    } else if (inputRow.getMonth() !== monthNumber) 
-            {
-                circleClassName='circle circle_invisible';
-                buttonClassName='Month__table-button-empty circle_invisible'
-            }
-            else       
-                 // Если текущая дата - выделить синим
-                if (inputRow.getDate() === new Date().getDate() && inputRow.getMonth() === new Date().getMonth()) 
-                {
-                    circleClassName="circle circle--filled";
-                    buttonClassName="Month__table-button-filled";        
-                } 
-                else if (holidays.includes(new Date(Date.UTC(2018, inputRow.getMonth(), inputRow.getDate())).toISOString().split('T')[0],)) 
+            circleClassName="BigMonth__td BigMonth__circle BigMonth__circle--filled";
+            buttonClassName="BigMonth__table-button-filled";        
+        } 
+        else 
         {
-            // Иначе, все остальный дни сначала проверяются на попадание в массив праздников
-            circleClassName="circle circle--empty";
-            buttonClassName="Month__table-button-empty circle--holiday"; 
-        } else if (weekneds.includes(new Date(Date.UTC(2018, inputRow.getMonth(), inputRow.getDate())).toISOString().split('T')[0],)) 
-            {
-                // Потом проверяются на попадание в массив выходных      
-                circleClassName="circle circle--empty";
-                buttonClassName="Month__table-button-empty circle--weekend";         
-            } else {
-            // Все что осталось обрабатывается тут
-            circleClassName="circle circle--empty";
-            buttonClassName="Month__table-button-empty"; 
-            }
-        
+          // Все что осталось обрабатывается тут
+          circleClassName="BigMonth__td BigMonth__circle BigMonth__circle--empty";
+          buttonClassName="BigMonth__table-button-empty"; 
+        }       
       return (
         <td className={circleClassName} key={inputRow.id}>
         <Popover content={content} title="Ивенты" trigger="click">
@@ -198,4 +155,4 @@ function tableRow(monthNumber, rowNumber, holidays, weekneds, visible) {
   return <tr>{row}</tr>;
 }
 
-export default Month;
+export default BigMonth;
