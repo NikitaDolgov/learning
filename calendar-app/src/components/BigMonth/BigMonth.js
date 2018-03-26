@@ -11,7 +11,7 @@ const content = (
 
 class BigMonth extends React.Component {
   render() {
-    const {month} = this.props;
+    const { month } = this.props;
     return (
       <div>
         <table className='BigMonth__table'>
@@ -110,28 +110,26 @@ function tableRow(monthNumber, rowNumber, holidays, weekneds, visible) {
     row = inputRow.map(inputRow => <th className='BigMonth__th' key={inputRow}>{inputRow}</th>);
   } else
     row = inputRow.map(inputRow => {
-    let circleClassName, buttonClassName; 
-        // Если текущая дата - выделить синим
-        if (inputRow.getDate() === new Date().getDate() && inputRow.getMonth() === new Date().getMonth()) 
-        {
-            circleClassName="BigMonth__td BigMonth__circle BigMonth__circle--filled";
-            buttonClassName="BigMonth__table-button-filled";        
-        } 
-        else 
-        {
-          // Все что осталось обрабатывается тут
-          circleClassName="BigMonth__td BigMonth__circle BigMonth__circle--empty";
-          buttonClassName="BigMonth__table-button-empty"; 
-        }       
+      let circleClassName, buttonClassName;
+      // Если текущая дата - выделить синим
+      if (inputRow.getDate() === new Date().getDate() && inputRow.getMonth() === new Date().getMonth()) {
+        circleClassName = "BigMonth__td BigMonth__circle BigMonth__circle--filled";
+        buttonClassName = "BigMonth__table-button-filled";
+      }
+      else {
+        // Все что осталось обрабатывается тут
+        circleClassName = "BigMonth__td BigMonth__circle BigMonth__circle--empty";
+        buttonClassName = "BigMonth__table-button-empty";
+      }
       return (
         <td className={circleClassName} key={inputRow.toISOString()}>
-        <Popover content={content} title="Ивенты" trigger="click">
-          <Button shape="circle" className={buttonClassName}>
-            {inputRow.getDate()}
-          </Button>
-        </Popover>
+          <Popover content={content} title="Ивенты" trigger="click">
+            <Button shape="circle" className={buttonClassName}>
+              {inputRow.getDate()}
+            </Button>
+          </Popover>
         </td>
-      )     
+      )
     });
 
   return <tr>{row}</tr>;

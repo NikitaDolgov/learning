@@ -12,7 +12,7 @@ const content = (
 class Month extends React.Component {
 
   onMonthClick = (value) => (event) => {
-     this.props.onMonthClick(value);  
+    this.props.onMonthClick(value);
   }
 
 
@@ -136,69 +136,60 @@ function tableRow(monthNumber, rowNumber, holidays, weekneds, visible) {
     row = inputRow.map(inputRow => <th key={inputRow}>{inputRow}</th>);
   } else
     row = inputRow.map(inputRow => {
-    let circleClassName, buttonClassName;
-    if (visible) 
-    {   
+      let circleClassName, buttonClassName;
+      if (visible) {
         // Если текущая дата - выделить синим
-        if (inputRow.getDate() === new Date().getDate() && inputRow.getMonth() === new Date().getMonth()) 
-        {
-            circleClassName="circle circle--filled";
-            buttonClassName="Month__table-button-filled";        
-        } else if (holidays.includes(new Date(Date.UTC(2018, inputRow.getMonth(), inputRow.getDate())).toISOString().split('T')[0],)) 
-                {
-                    // Иначе, все остальный дни сначала проверяются на попадание в массив праздников
-                    circleClassName="circle circle--empty";
-                    buttonClassName="Month__table-button-empty circle--holiday"; 
-                } 
-                else if (weekneds.includes(new Date(Date.UTC(2018, inputRow.getMonth(), inputRow.getDate())).toISOString().split('T')[0],)) 
-                    {
-                        // Потом проверяются на попадание в массив выходных      
-                        circleClassName="circle circle--empty";
-                        buttonClassName="Month__table-button-empty circle--weekend";         
-                    } 
-                    else 
-                    {
-                        // Все что осталось обрабатывается тут
-                        circleClassName="circle circle--empty";
-                        buttonClassName="Month__table-button-empty"; 
-                    }
-    } else if (inputRow.getMonth() !== monthNumber) 
-            {
-                circleClassName='circle circle_invisible';
-                buttonClassName='Month__table-button-empty circle_invisible'
-            }
-            else       
-                 // Если текущая дата - выделить синим
-                if (inputRow.getDate() === new Date().getDate() && inputRow.getMonth() === new Date().getMonth()) 
-                {
-                    circleClassName="circle circle--filled";
-                    buttonClassName="Month__table-button-filled";        
-                } 
-                else if (holidays.includes(new Date(Date.UTC(2018, inputRow.getMonth(), inputRow.getDate())).toISOString().split('T')[0],)) 
-        {
-            // Иначе, все остальный дни сначала проверяются на попадание в массив праздников
-            circleClassName="circle circle--empty";
-            buttonClassName="Month__table-button-empty circle--holiday"; 
-        } else if (weekneds.includes(new Date(Date.UTC(2018, inputRow.getMonth(), inputRow.getDate())).toISOString().split('T')[0],)) 
-            {
-                // Потом проверяются на попадание в массив выходных      
-                circleClassName="circle circle--empty";
-                buttonClassName="Month__table-button-empty circle--weekend";         
-            } else {
-            // Все что осталось обрабатывается тут
-            circleClassName="circle circle--empty";
-            buttonClassName="Month__table-button-empty"; 
-            }
-        
+        if (inputRow.getDate() === new Date().getDate() && inputRow.getMonth() === new Date().getMonth()) {
+          circleClassName = "circle circle--filled";
+          buttonClassName = "Month__table-button-filled";
+        } else if (holidays.includes(new Date(Date.UTC(2018, inputRow.getMonth(), inputRow.getDate())).toISOString().split('T')[0], )) {
+          // Иначе, все остальный дни сначала проверяются на попадание в массив праздников
+          circleClassName = "circle circle--empty";
+          buttonClassName = "Month__table-button-empty circle--holiday";
+        }
+        else if (weekneds.includes(new Date(Date.UTC(2018, inputRow.getMonth(), inputRow.getDate())).toISOString().split('T')[0], )) {
+          // Потом проверяются на попадание в массив выходных      
+          circleClassName = "circle circle--empty";
+          buttonClassName = "Month__table-button-empty circle--weekend";
+        }
+        else {
+          // Все что осталось обрабатывается тут
+          circleClassName = "circle circle--empty";
+          buttonClassName = "Month__table-button-empty";
+        }
+      } else if (inputRow.getMonth() !== monthNumber) {
+        circleClassName = 'circle circle_invisible';
+        buttonClassName = 'Month__table-button-empty circle_invisible'
+      }
+      else
+        // Если текущая дата - выделить синим
+        if (inputRow.getDate() === new Date().getDate() && inputRow.getMonth() === new Date().getMonth()) {
+          circleClassName = "circle circle--filled";
+          buttonClassName = "Month__table-button-filled";
+        }
+        else if (holidays.includes(new Date(Date.UTC(2018, inputRow.getMonth(), inputRow.getDate())).toISOString().split('T')[0], )) {
+          // Иначе, все остальный дни сначала проверяются на попадание в массив праздников
+          circleClassName = "circle circle--empty";
+          buttonClassName = "Month__table-button-empty circle--holiday";
+        } else if (weekneds.includes(new Date(Date.UTC(2018, inputRow.getMonth(), inputRow.getDate())).toISOString().split('T')[0], )) {
+          // Потом проверяются на попадание в массив выходных      
+          circleClassName = "circle circle--empty";
+          buttonClassName = "Month__table-button-empty circle--weekend";
+        } else {
+          // Все что осталось обрабатывается тут
+          circleClassName = "circle circle--empty";
+          buttonClassName = "Month__table-button-empty";
+        }
+
       return (
         <td className={circleClassName} key={inputRow.toISOString()}>
-        <Popover content={content} title="Ивенты" trigger="click">
-          <Button shape="circle" className={buttonClassName}>
-            {inputRow.getDate()}
-          </Button>
-        </Popover>
+          <Popover content={content} title="Ивенты" trigger="click">
+            <Button shape="circle" className={buttonClassName}>
+              {inputRow.getDate()}
+            </Button>
+          </Popover>
         </td>
-      )     
+      )
     });
 
   return <tr>{row}</tr>;

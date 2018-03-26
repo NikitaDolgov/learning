@@ -65,31 +65,3 @@
 .SideBlock__month-name {
     margin-left: 10px;
 }
-
-
-.todel {
-    margin-left: 40px;
-    margin-top: 200px;
-}
-.todel-a{
-    margin-left: 40px;
-    margin-top: 20px;
-}
-
-.button-to-del {
-    color: red;
-    font:50px;
-    font-weight: bold;
-}
-.SideBlock__checkbox-todel {
-    margin-left: 15px;
-    font-family: SFUIText;
-    font-size: 14px;
-    font-weight: 500;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: -0.3px;
-    color: #575757;
-    margin-top: 20px;
-}
