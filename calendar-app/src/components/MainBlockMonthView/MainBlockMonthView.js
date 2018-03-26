@@ -12,7 +12,7 @@ class MainBlockMonthView extends React.Component {
         <div>
           <div className='MainBlockMonthView__header'>
             <div className='MainBlockMonthView__monthHeader'>
-              <b>март 2018 г.</b>
+              <b>{getMonthName(this.props.month)} 2018 г.</b>
             </div>
             <div className='MainBlockMonthView__buttons'> 
               <ButtonGroup>
@@ -23,7 +23,7 @@ class MainBlockMonthView extends React.Component {
             </div>
           </div>
           <div className='MainBlockMonthView__main'>
-            <div className='MainBlockMonthView__month'><BigMonth month={2} /></div> 
+            <div className='MainBlockMonthView__month'><BigMonth month={this.props.month} /></div> 
           </div>
         </div> 
                        
@@ -31,4 +31,24 @@ class MainBlockMonthView extends React.Component {
     }
   }
   
+// Получаем русское название месяца по номеру
+function getMonthName(monthNumber) {
+  const months = [
+    'Январь',
+    'Февраль',
+    'Март',
+    'Апрель',
+    'Май',
+    'Июнь',
+    'Июль',
+    'Август',
+    'Сентябрь',
+    'Октябрь',
+    'Ноябрь',
+    'Декабрь',
+  ];
+  return months[monthNumber];
+}
+
+
   export default MainBlockMonthView;

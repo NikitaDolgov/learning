@@ -10,13 +10,19 @@ const content = (
 );
 
 class Month extends React.Component {
+
+  onMonthClick = (value) => (event) => {
+     this.props.onMonthClick(value);  
+  }
+
+
+
   render() {
     const { month, holidays, weekends, visible } = this.props;
-    console.log(month, holidays, weekends, visible);
     return (
       <div>
         <table>
-          <caption>{getMonthName(month)}</caption>
+          <caption><Button onClick={this.onMonthClick(month)} className='Month__button-month-name'>{getMonthName(month)}</Button></caption>
           <tbody>
             {tableRow(month, 1, holidays, weekends, visible)}
             {tableRow(month, 2, holidays, weekends, visible)}
@@ -127,7 +133,7 @@ function tableRow(monthNumber, rowNumber, holidays, weekneds, visible) {
   // Превращаем массив дат в ячейки таблицы
   if (rowNumber === 1) {
     // Если месяц первый - то это заголовки
-    row = inputRow.map(inputRow => <th key={inputRow.id}>{inputRow}</th>);
+    row = inputRow.map(inputRow => <th key={inputRow}>{inputRow}</th>);
   } else
     row = inputRow.map(inputRow => {
     let circleClassName, buttonClassName;
@@ -185,7 +191,7 @@ function tableRow(monthNumber, rowNumber, holidays, weekneds, visible) {
             }
         
       return (
-        <td className={circleClassName} key={inputRow.id}>
+        <td className={circleClassName} key={inputRow.toISOString()}>
         <Popover content={content} title="Ивенты" trigger="click">
           <Button shape="circle" className={buttonClassName}>
             {inputRow.getDate()}

@@ -107,14 +107,14 @@ function tableRow(monthNumber,rowNumber) {
     //Превращаем массив дат в ячейки таблицы
     if (rowNumber === 1) {
         // Если месяц первый - то это заголовки
-        row = inputRow.map((inputRow) => <th className = 'SmallMonth__th' key={inputRow.id}>{inputRow}</th>)
+        row = inputRow.map((inputRow) => <th className = 'SmallMonth__th' key={inputRow}>{inputRow}</th>)
     } 
     else {
         row = inputRow.map((inputRow) => { 
             // Если текущая дата - выделить синим
             if (inputRow.getDate() === new Date().getDate() && inputRow.getMonth() === new Date().getMonth()) {
                 console.log(inputRow);
-                return <td className='SmallMonth__td SmallMonth__circle' key={inputRow.id}>
+                return <td className='SmallMonth__td SmallMonth__circle' key={inputRow.toISOString()}>
                        <Popover content={content} title="Ивенты" trigger="click">
                        <Button type='primary' shape='circle' className='SmallMonth__table-button-filled'>{inputRow.getDate()}</Button>
                        </Popover>
@@ -123,7 +123,7 @@ function tableRow(monthNumber,rowNumber) {
             else
             {   
                         //Все что осталось обрабатывается тут
-                        return <td className='SmallMonth__td SmallMonth__circle SmallMonth__circle--empty' key={inputRow.id}>
+                        return <td className='SmallMonth__td SmallMonth__circle SmallMonth__circle--empty' key={inputRow.toISOString()}>
                         <Popover content={content} title="Ивенты" trigger="click">
                         <Button shape='circle' className='SmallMonth__table-button-empty'>{inputRow.getDate()}</Button>
                         </Popover>

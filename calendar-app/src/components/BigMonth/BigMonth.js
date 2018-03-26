@@ -30,24 +30,6 @@ class BigMonth extends React.Component {
   }
 }
 
-// Получаем русское название месяца по номеру
-function getMonthName(monthNumber) {
-  const months = [
-    'Январь',
-    'Февраль',
-    'Март',
-    'Апрель',
-    'Май',
-    'Июнь',
-    'Июль',
-    'Август',
-    'Сентябрь',
-    'Октябрь',
-    'Ноябрь',
-    'Декабрь',
-  ];
-  return months[monthNumber];
-}
 
 // Получаем список дней из месяца
 function getDaysInMonth(month, year) {
@@ -125,7 +107,7 @@ function tableRow(monthNumber, rowNumber, holidays, weekneds, visible) {
   // Превращаем массив дат в ячейки таблицы
   if (rowNumber === 1) {
     // Если месяц первый - то это заголовки
-    row = inputRow.map(inputRow => <th className='BigMonth__th' key={inputRow.id}>{inputRow}</th>);
+    row = inputRow.map(inputRow => <th className='BigMonth__th' key={inputRow}>{inputRow}</th>);
   } else
     row = inputRow.map(inputRow => {
     let circleClassName, buttonClassName; 
@@ -142,7 +124,7 @@ function tableRow(monthNumber, rowNumber, holidays, weekneds, visible) {
           buttonClassName="BigMonth__table-button-empty"; 
         }       
       return (
-        <td className={circleClassName} key={inputRow.id}>
+        <td className={circleClassName} key={inputRow.toISOString()}>
         <Popover content={content} title="Ивенты" trigger="click">
           <Button shape="circle" className={buttonClassName}>
             {inputRow.getDate()}

@@ -32,20 +32,7 @@ td {
 }
 
 caption {
-    width: 72px;
-    height: 19px;
-    font-family: HelveticaNeue;
-    font-size: 16px;
-    font-weight: 300;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: 1.1px;
-    text-align: left;
-    color: #e30613;
-    margin-bottom: 15px;
     caption-side: top;
-    margin-left: 3px;
 }
 
 .circle {
@@ -79,4 +66,35 @@ caption {
     background: #0087f3;
     width: 25px;
     height: 25px;
+}
+.Month__button-month-name {
+    width: 72px;
+    height: 19px;
+    font-family: HelveticaNeue;
+    font-size: 16px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 1.1px;
+    color: #e30613;
+    border: 0px;
+    background: white;
+    margin-left: -12px;
+}
+
+.Month__button-month-name.ant-btn-clicked {
+    background: white;
+    border-color: white;
+}
+.Month__button-month-name.ant-btn:focus{
+    background: white;
+    border-color:  white;
+}
+.Month__button-month-name.ant-btn:hover{
+    background: white;
+    border-color:  white;
+}
+.Month__button-month-name.ant-btn::after{
+    border-color: white;
 }
