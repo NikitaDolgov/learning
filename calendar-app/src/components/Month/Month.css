@@ -53,31 +53,30 @@ caption {
     width: 30px;
     height: 30px;
 }
-
 .circle--empty {   
     background: white;
 }
-
 .circle--holiday {
     color: red;
 }
 .circle--weekend {
     color:lightgrey;
 }
-
-
 .circle--filled {
-    background: #0087f3;
     color: white;
+}
+.circle_invisible {
+    visibility: hidden;
 }
 .Month__table-button-empty {
     border: white;
     width: 20px;
     height: 20px;
 }
-.Month__table-button-filed {
+.Month__table-button-filled {
     border: white;
+    color:white;
     background: #0087f3;
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
 }

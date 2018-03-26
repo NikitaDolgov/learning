@@ -66,21 +66,21 @@ class MainBlock extends React.Component {
           <div className='MainBlock__dates-invisible'><Button onClick={this.onToggleClick()} className='MainBlock__button'>Спрятать/показать</Button></div>
           <div>
             <div className='month'><Month month={0} holidays={this.state.holidays} weekends={this.state.weekends} visible={this.state.visible}/></div> 
-            {/* <div className='month'><Month month={1} holidays={this.state.holidays} weekends={this.state.weekends}/></div>     */}
-            {/* <div className='month'><Month month={2} holidays={this.state.holidays} weekends={this.state.weekends}/></div>  */}
-            {/* <div className='month'><Month month={3} holidays={this.state.holidays} weekends={this.state.weekends}/></div>  */}
+            <div className='month'><Month month={1} holidays={this.state.holidays} weekends={this.state.weekends} visible={this.state.visible}/></div>    
+            <div className='month'><Month month={2} holidays={this.state.holidays} weekends={this.state.weekends} visible={this.state.visible}/></div> 
+            <div className='month'><Month month={3} holidays={this.state.holidays} weekends={this.state.weekends} visible={this.state.visible}/></div> 
           </div>
           <div>
-            {/* <div className='month'><Month month={4} holidays={this.state.holidays} weekends={this.state.weekends}/></div>  */}
-            {/* <div className='month'><Month month={5} holidays={this.state.holidays} weekends={this.state.weekends}/></div>     */}
-            {/* <div className='month'><Month month={6} holidays={this.state.holidays} weekends={this.state.weekends}/></div>  */}
-            {/* <div className='month'><Month month={7} holidays={this.state.holidays} weekends={this.state.weekends}/></div>  */}
+            <div className='month'><Month month={4} holidays={this.state.holidays} weekends={this.state.weekends} visible={this.state.visible}/></div> 
+            <div className='month'><Month month={5} holidays={this.state.holidays} weekends={this.state.weekends} visible={this.state.visible}/></div>    
+            <div className='month'><Month month={6} holidays={this.state.holidays} weekends={this.state.weekends} visible={this.state.visible}/></div> 
+            <div className='month'><Month month={7} holidays={this.state.holidays} weekends={this.state.weekends} visible={this.state.visible}/></div> 
           </div>
           <div>
-            {/* <div className='month'><Month month={8} holidays={this.state.holidays} weekends={this.state.weekends}/></div>  */}
-            {/* <div className='month'><Month month={9} holidays={this.state.holidays} weekends={this.state.weekends}/></div>     */}
-            {/* <div className='month'><Month month={10} holidays={this.state.holidays} weekends={this.state.weekends}/></div> */}
-            {/* <div className='month'><Month month={11} holidays={this.state.holidays} weekends={this.state.weekends}/></div> */}
+            <div className='month'><Month month={8} holidays={this.state.holidays} weekends={this.state.weekends} visible={this.state.visible}/></div> 
+            <div className='month'><Month month={9} holidays={this.state.holidays} weekends={this.state.weekends} visible={this.state.visible}/></div>    
+            <div className='month'><Month month={10} holidays={this.state.holidays} weekends={this.state.weekends} visible={this.state.visible}/></div>
+            <div className='month'><Month month={11} holidays={this.state.holidays} weekends={this.state.weekends} visible={this.state.visible}/></div>
           </div>  
          </div> : <h1 className='MainBlock__loading'>  <Spin size="large" /> loading... </h1> 
         } 

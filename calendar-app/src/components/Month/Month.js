@@ -130,75 +130,69 @@ function tableRow(monthNumber, rowNumber, holidays, weekneds, visible) {
     row = inputRow.map(inputRow => <th key={inputRow.id}>{inputRow}</th>);
   } else
     row = inputRow.map(inputRow => {
-      // Если текущая дата - выделить синим
-      if (
-        inputRow.getDate() === new Date().getDate() &&
-        inputRow.getMonth() === new Date().getMonth()
-      ) {
-        return (
-          <td className="circle circle--filled" key={inputRow.id}>
-            <Popover content={content} title="Ивенты" trigger="click">
-              <Button
-                type="primary"
-                shape="circle"
-                className="Month__table-button-filled"
-              >
-                {inputRow.getDate()}
-              </Button>
-            </Popover>
-          </td>
-        );
-      } else if (
-        holidays.includes(
-          new Date(Date.UTC(2018, inputRow.getMonth(), inputRow.getDate()))
-            .toISOString()
-            .split('T')[0],
-        )
-      ) {
-        // Иначе, все остальный дни сначала проверяются на попадание в массив праздников
-        return (
-          <td className="circle circle--empty" key={inputRow.id}>
-            <Popover content={content} title="Ивенты" trigger="click">
-              <Button
-                shape="circle"
-                className="Month__table-button-empty circle--holiday"
-              >
-                {inputRow.getDate()}
-              </Button>
-            </Popover>
-          </td>
-        );
-      } else if (
-        weekneds.includes(
-          new Date(Date.UTC(2018, inputRow.getMonth(), inputRow.getDate()))
-            .toISOString()
-            .split('T')[0],
-        )
-      ) {
-        // Потом проверяются на попадание в массив выходных
-        return (
-          <td className="circle circle--empty" key={inputRow.id}>
-            <Popover content={content} title="Ивенты" trigger="click">
-              <Button
-                shape="circle"
-                className="Month__table-button-empty circle--weekend"
-              >
-                {inputRow.getDate()}
-              </Button>
-            </Popover>
-          </td>
-        );
-      }
-      // Все что осталось обрабатывается тут
+    let circleClassName, buttonClassName;
+    if (visible) 
+    {   
+        // Если текущая дата - выделить синим
+        if (inputRow.getDate() === new Date().getDate() && inputRow.getMonth() === new Date().getMonth()) 
+        {
+            circleClassName="circle circle--filled";
+            buttonClassName="Month__table-button-filled";        
+        } else if (holidays.includes(new Date(Date.UTC(2018, inputRow.getMonth(), inputRow.getDate())).toISOString().split('T')[0],)) 
+                {
+                    // Иначе, все остальный дни сначала проверяются на попадание в массив праздников
+                    circleClassName="circle circle--empty";
+                    buttonClassName="Month__table-button-empty circle--holiday"; 
+                } 
+                else if (weekneds.includes(new Date(Date.UTC(2018, inputRow.getMonth(), inputRow.getDate())).toISOString().split('T')[0],)) 
+                    {
+                        // Потом проверяются на попадание в массив выходных      
+                        circleClassName="circle circle--empty";
+                        buttonClassName="Month__table-button-empty circle--weekend";         
+                    } 
+                    else 
+                    {
+                        // Все что осталось обрабатывается тут
+                        circleClassName="circle circle--empty";
+                        buttonClassName="Month__table-button-empty"; 
+                    }
+    } else if (inputRow.getMonth() != monthNumber) 
+            {
+                circleClassName='circle circle_invisible';
+                buttonClassName='Month__table-button-empty circle_invisible'
+            }
+            else       
+                 // Если текущая дата - выделить синим
+                if (inputRow.getDate() === new Date().getDate() && inputRow.getMonth() === new Date().getMonth()) 
+                {
+                    circleClassName="circle circle--filled";
+                    buttonClassName="Month__table-button-filled";        
+                } 
+                else if (holidays.includes(new Date(Date.UTC(2018, inputRow.getMonth(), inputRow.getDate())).toISOString().split('T')[0],)) 
+        {
+            // Иначе, все остальный дни сначала проверяются на попадание в массив праздников
+            circleClassName="circle circle--empty";
+            buttonClassName="Month__table-button-empty circle--holiday"; 
+        } else if (weekneds.includes(new Date(Date.UTC(2018, inputRow.getMonth(), inputRow.getDate())).toISOString().split('T')[0],)) 
+            {
+                // Потом проверяются на попадание в массив выходных      
+                circleClassName="circle circle--empty";
+                buttonClassName="Month__table-button-empty circle--weekend";         
+            } else {
+            // Все что осталось обрабатывается тут
+            circleClassName="circle circle--empty";
+            buttonClassName="Month__table-button-empty"; 
+            }
+        
       return (
-        <td className="circle circle--empty" key={inputRow.id}>
-          <Popover content={content} title="Ивенты" trigger="click">
-            <Button shape="circle" className="Month__table-button-empty">
-              {inputRow.getDate()}
-            </Button>
-          </Popover>
+        <td className={circleClassName} key={inputRow.id}>
+        <Popover content={content} title="Ивенты" trigger="click">
+          <Button shape="circle" className={buttonClassName}>
+            {inputRow.getDate()}
+          </Button>
+        </Popover>
         </td>
-      );
+      )     
     });
 
   return <tr>{row}</tr>;

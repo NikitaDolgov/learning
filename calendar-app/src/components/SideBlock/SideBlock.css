@@ -55,6 +55,13 @@
     background:  #f8f8f8;
     border-color:   #f8f8f8;
 }
+.SideBlock__buttons.ant-btn:hover{
+    background:  #f8f8f8;
+    border-color:   #f8f8f8;
+}
+.SideBlock__buttons.ant-btn::after{
+    border-color:   #f8f8f8;
+}
 .SideBlock__arrow {
     height: 20px;
 }
