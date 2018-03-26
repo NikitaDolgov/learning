@@ -31,12 +31,6 @@ class SmallMonth extends React.Component {
     }
   }
 
-//Получаем русское название месяца по номеру 
-function getMonthName (monthNumber){
-    const months = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
-    return months[monthNumber];
-    }
-
 //Получаем список дней из месяца
 function getDaysInMonth(month, year) {
     let date = new Date(Date.UTC(year, month, 1));
@@ -117,8 +111,8 @@ function tableRow(monthNumber,rowNumber) {
     } 
     else {
         row = inputRow.map((inputRow) => { 
-            // Если текущая дата - выделить синим monthNumber === new Date(Date.UTC()).getMonth() && 
-            if (inputRow.getDate() === new Date().getDate() && monthNumber === new Date().getMonth()) {
+            // Если текущая дата - выделить синим
+            if (inputRow.getDate() === new Date().getDate() && inputRow.getMonth() === new Date().getMonth()) {
                 console.log(inputRow);
                 return <td className='SmallMonth__td SmallMonth__circle' key={inputRow.id}>
                        <Popover content={content} title="Ивенты" trigger="click">

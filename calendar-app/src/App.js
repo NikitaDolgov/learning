@@ -19,16 +19,14 @@ class App extends React.Component {
     switch(t) {
       case 'year':
         return <div className='main'><MainBlock /></div>;
-        break;
       case 'month':
         return <div className='main'><MainBlockMonth /></div>;
-        break;
       case 'week':
-        return <div className='main'></div>;
-        break;  
+        return <div className='main'></div>; 
       case 'day':
-        return <div className='main'></div>;
-        break;         
+        return <div className='main'></div>; 
+      default: 
+        return <div className='main'><MainBlock /></div>;       
     }
   }
 
