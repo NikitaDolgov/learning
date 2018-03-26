@@ -19,6 +19,22 @@ const content = (
 
   let promise;
   let month_state;
+  const months = [
+    'Январь',
+    'Февраль',
+    'Март',
+    'Апрель',
+    'Май',
+    'Июнь',
+    'Июль',
+    'Август',
+    'Сентябрь',
+    'Октябрь',
+    'Ноябрь',
+    'Декабрь',
+  ]; 
+  let month_name = months[new Date().getMonth()];
+  
 
 class SideBlock extends React.Component {
     state = {
@@ -27,6 +43,7 @@ class SideBlock extends React.Component {
     }
     
 
+    
     
     
 
@@ -47,10 +64,12 @@ class SideBlock extends React.Component {
 
     onLeftArrowClick = () => () => {
         month_state = this.state.month-1;
+        month_name = months[month_state];
         this.setState({month: month_state})
     }
     onRightArrowClick = () => () => {
         month_state = this.state.month+1;
+        month_name = months[month_state];
         this.setState({month: month_state})
     }
     
@@ -80,7 +99,7 @@ class SideBlock extends React.Component {
                     <div className='SideBlock__month-name'> 
                     <ButtonGroup>
                         <Button onClick={this.onLeftArrowClick()} className='SideBlock__buttons'>&#60;</Button>
-                        <Button className='SideBlock__buttons'>Март</Button>
+                        <Button className='SideBlock__buttons'>{month_name}</Button>
                         <Button onClick={this.onRightArrowClick()} className='SideBlock__buttons'>&#62;</Button>
                     </ButtonGroup>
                     </div>
