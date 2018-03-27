@@ -61,6 +61,7 @@ class MainBlock extends React.Component {
   render() {
     return (
       <div className='MainBlock'>
+      {console.log('router',this.props)}
         {this.state.holidays.length > 0 && this.state.weekends.length > 0 ? <div>
           <div className='MainBlock__year'>2018</div>
           <div className='MainBlock__dates-invisible'><Button onClick={this.onToggleClick()} className='MainBlock__button'>Спрятать/показать</Button></div>

@@ -5,8 +5,10 @@ import MainBlock from './components/MainBlock/MainBlock';
 import HeaderBlock from './components/HeaderBlock/HeaderBlock';
 import SideBlock from './components/SideBlock/SideBlock';
 import MainBlockMonthView from './components/MainBlockMonthView/MainBlockMonthView';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 
+let someVariable = 3;
 
 class App extends React.Component {
   constructor(props) {
@@ -41,6 +43,14 @@ class App extends React.Component {
     return (
       <div>
         <div className='header'><HeaderBlock onButtonClick={this.onButtonClick} /></div>
+        <Router>
+        <div>
+          <ul>
+            <li><Link to='/MainBlockMonthView'>MainBlockMonthView</Link></li>
+          </ul>       
+            <Route path='/MainBlockMonthView' render={(props) => <MainBlockMonthView extra={this.state.month}/>}/>
+        </div>  
+        </Router>
         <div className='row'>
           <div className='side'><SideBlock /></div>
           {this.double(this.state.view)}

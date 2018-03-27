@@ -12,7 +12,7 @@ class MainBlockMonthView extends React.Component {
       <div>
         <div className='MainBlockMonthView__header'>
           <div className='MainBlockMonthView__monthHeader'>
-            <b>{getMonthName(this.props.month)} 2018 г.</b>
+            <b>{getMonthName(this.props.extra)} 2018 г.</b>
           </div>
           <div className='MainBlockMonthView__buttons'>
             <ButtonGroup>
@@ -23,7 +23,7 @@ class MainBlockMonthView extends React.Component {
           </div>
         </div>
         <div className='MainBlockMonthView__main'>
-          <div className='MainBlockMonthView__month'><BigMonth month={this.props.month} /></div>
+          <div className='MainBlockMonthView__month'><BigMonth month={this.props.extra} /></div>
         </div>
       </div>
 
