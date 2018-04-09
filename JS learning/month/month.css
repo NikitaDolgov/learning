@@ -24,6 +24,15 @@
     text-align: center;
     background-color: #ffffff;
     color: #717171;
+    height: 23px;
+}
+.main-table-button-filled {
+    background-color: #e30613;
+    border: 0px;
+    border-radius: 100%;
+    color: #ffffff;
+    text-align: center;
+    height: 23px;
 }
 .main-month_name{
   	width: 58px;

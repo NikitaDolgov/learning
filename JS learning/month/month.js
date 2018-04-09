@@ -1,5 +1,4 @@
 function drawMonth(monthNumber) {
-    console.log(monthNumber);
     if (monthNumber === 0) document.getElementById('main-month0').innerHTML = buildTable(monthNumber);
     if (monthNumber === 1) document.getElementById('main-month1').innerHTML = buildTable(monthNumber);
     if (monthNumber === 2) document.getElementById('main-month2').innerHTML = buildTable(monthNumber);
@@ -125,7 +124,7 @@ function getDays(monthNumber) {
           // Если текущая дата - выделить синим
           if (inputRow.getDate() === new Date().getDate() && inputRow.getMonth() === new Date().getMonth()) {
             circleClassName = "main-circle-empty";
-            buttonClassName = "Month__table-button-filled";
+            buttonClassName = "main-table-button-filled";
           } else if (holidays.includes(new Date(Date.UTC(2018, inputRow.getMonth(), inputRow.getDate())).toISOString().split('T')[0], )) {
             // Иначе, все остальный дни сначала проверяются на попадание в массив праздников
             circleClassName = "main-circle-empty";
@@ -149,7 +148,7 @@ function getDays(monthNumber) {
           // Если текущая дата - выделить синим
           if (inputRow.getDate() === new Date().getDate() && inputRow.getMonth() === new Date().getMonth()) {
             circleClassName = "circle--filled";
-            buttonClassName = "Month__table-button-filled";
+            buttonClassName = "main-table-button-filled";
           }
           else if (holidays.includes(new Date(Date.UTC(2018, inputRow.getMonth(), inputRow.getDate())).toISOString().split('T')[0], )) {
             // Иначе, все остальный дни сначала проверяются на попадание в массив праздников
