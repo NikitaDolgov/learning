@@ -1,11 +1,11 @@
-function drawMonth(monthNumber) {
+function drawSmallMonth(monthNumber) {
     document.getElementById('side_bottom-small-month').innerHTML = buildTable(monthNumber);
 }
 
 //строим таблицу
 function buildTable(monthNumber) {
   return (
-      '<table>'+
+      '<table cellspasing="10px">'+
         tableRow(monthNumber, 1, [], [], true) +
         tableRow(monthNumber, 2, [], [], true) +
         tableRow(monthNumber, 3, [], [], true) +
@@ -112,7 +112,7 @@ function getDays(monthNumber) {
     // Превращаем массив дат в ячейки таблицы
     if (rowNumber === 1) {
       // Если месяц первый - то это заголовки
-      row = inputRow.map(inputRow => '<th>' + inputRow + '</th>');
+      row = inputRow.map(inputRow => '<th class="side_bar-th">' + inputRow + '</th>');
     } else
       row = inputRow.map(inputRow => {
         let circleClassName, buttonClassName;
@@ -162,7 +162,7 @@ function getDays(monthNumber) {
           console.log(circleClassName);
         return (
           '<td Class='+circleClassName+'>'+
-              '<Button type="button" Class='+buttonClassName+'>'+
+              '<Button type="button" class="Month__table-button-empty">'+
                 inputRow.getDate()+
               '</Button>'+
           '</td>'

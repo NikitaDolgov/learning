@@ -1,9 +1,12 @@
-
+.side_bar-th {
+    width:28px;
+    font-size: 10px;
+}
 .circle--empty {   
-    background: white;
-    border-radius: 25px;
-    width: 30px;
-    height: 30px;
+    background-color: #f2f2f2;
+    border-radius: 100%;
+    height: 28px;
+    text-align: center;
 }
 .circle--holiday {
     color: red;
@@ -30,10 +33,9 @@
     height: 30px;
 }
 .Month__table-button-empty {
-    border: white;
-    width: 20px;
-    height: 20px;
-    border-radius: 100%;
+    background-color: #f2f2f2;
+    border: 0px;
+    font-size: 10px;
 }
 .Month__table-button-filled {
     border: white;

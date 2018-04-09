@@ -1,0 +1,59 @@
+.main {
+	flex: 84%;
+}
+.main__year {
+	width: 66px;
+  	height: 32px;
+  	font-family: HelveticaNeue;
+  	font-size: 26px;
+  	font-weight: 300;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: normal;
+  	letter-spacing: 1.9px;
+  	color: #1d2022;
+  	margin-top: 10px;
+  	margin-left: 37px; 
+}
+.main__row {
+	display: flex;
+	vertical-align: center;
+	justify-content: space-around;
+	margin-top: 29px;
+}
+.main__monthName {
+    margin: 0;
+  	width: 58px;
+  	height: 19px;
+  	font-family: HelveticaNeue;
+  	font-size: 16px;
+  	font-weight: 300;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: normal;
+  	letter-spacing: 1.1px;
+  	color: #e30613;
+  	margin-left: 14px;
+ }
+.main__dayOfWeek {
+	width: 22px;
+  	height: 10px;
+  	opacity: 0.59;
+  	font-family: HelveticaNeue;
+  	font-size: 8px;
+  	font-weight: 500;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: normal;
+  	letter-spacing: 0.6px;
+  	color: #949494;
+}
+.main__td {
+  font-family: HelveticaNeue;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  text-align: center;
+  color: #717171;
+}

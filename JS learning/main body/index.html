@@ -1,0 +1,630 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8"> 
+	<link rel="stylesheet" href="style-body.css">
+	<link rel="stylesheet" href="style-header.css">
+	<link rel="stylesheet" href="style-side.css">
+	<link rel="stylesheet" href="style-main.css">
+	<link rel="stylesheet" href="../small-month/small-month.css">
+	<script src="../small-month/small-month.js"></script>
+	<link rel="stylesheet" href="../month/month.css">
+	<script src="../month/month.js"></script>
+	<style>table {table-layout: fixed;}</style>
+</head>
+<body>
+	<div class='header'>
+		<div class='header__circles'>
+			<div class='header__circle header__circle-red'></div>
+			<div class='header__circle header__circle-yellow'></div>
+			<div class='header__circle header__circle-green'></div>
+		</div>
+		<div class='header__calendar-button'>
+			<span class='header__calendar-button-text'>Календари</span>
+		</div>
+		<div class='header_arrow'>
+			<div class='header__circle header__circle-grey'></div>
+		</div>
+		<div class='header__middle-buttons'>
+			<div class='header__day-week-month'><span class='header__middle-1'>День</span></div>
+			<div class='header__day-week-month'><span class='header__middle-1'>Неделя</span></div>
+			<div class='header__day-week-month'><span class='header__middle-1'>Месяц</span></div>
+			<div class='header__year'><span class='header__middle-2'>Год</span></div>
+		</div>
+		<div class='header__search'></div>	
+	</div>
+	<div class='row'>
+		<div class='side'>
+			<div class='side__check-boxes'>
+				<p class='side__email'>mybox@directual.com</p>
+				<div class='side__check-box-row'>
+					<div class='side__chekbox side__checkbox--red'></div>
+					<span class='side__checkbox-text'>Holidays in Russia</span>
+				</div>
+				<div class='side__check-box-row'>
+					<div class='side__chekbox side__checkbox--green'></div>
+					<span class='side__checkbox-text'>Holidays in Russia</span>
+				</div>	
+			</div>
+			<hr>
+			<div class='side__bottom'>
+				<div class='side__bottom-top'>
+					<div>&#60;</div>
+					<div class='side__bottom-top--month'>сентябрь</div>
+					<div>&#62;</div>
+				</div>
+				<p id='side_bottom-month'>
+				</p>
+				<div id = 'side_bottom-small-month'>
+						<script>drawSmallMonth(4)</script>
+				</div>
+			</div>	
+		</div>
+		<div class='main'>
+			<p class='main__year'>2018</p>
+			<div class='main__row'>
+				<div id='main-month0' class='main__month'>
+					<script>drawMonth(0)</script>
+        		</div>
+        		<div id='main-month1' class='main__month'>
+					<script>drawMonth(1)</script>
+        		</div>
+        		<div id='main-month2' class='main__month'>
+					<script>drawMonth(2)</script>
+				</div>
+				<div id='main-month3' class='main__month'>
+					<script>drawMonth(3)</script>
+				</div>        	
+			</div>
+			<div class='main__row'>
+				<div class='main__month'>
+				<p class="main__monthName">Январь</p>
+        		<table cellspacing="10">
+          			<tr class='main__dayOfWeek'>
+            			<td>SUN</td>
+            			<td>MON</td>
+            			<td>TUE</td>
+            			<td>WED</td>
+            			<td>THU</td>
+            			<td>FRI</td>
+            			<td>SAT</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>1</td>
+            			<td class='main__td'>2</td>
+            			<td class='main__td'>3</td>
+            			<td class='main__td'>4</td>
+            			<td class='main__td'>5</td>
+            			<td class='main__td'>6</td>
+            			<td class='main__td'>7</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>8</td>
+            			<td class='main__td'>9</td>
+            			<td class='main__td'>10</td>
+            			<td class='main__td'>11</td>
+            			<td class='main__td'>12</td>
+            			<td class='main__td'>13</td>
+            			<td class='main__td'>14</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>15</td>
+            			<td class='main__td'>16</td>
+            			<td class='main__td'>17</td>
+            			<td class='main__td'>18</td>
+            			<td class='main__td'>19</td>
+            			<td class='main__td'>20</td>
+            			<td class='main__td'>21</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>22</td>
+            			<td class='main__td'>23</td>
+            			<td class='main__td'>24</td>
+            			<td class='main__td'>25</td>
+            			<td class='main__td'>26</td>
+            			<td class='main__td'>27</td>
+            			<td class='main__td'>28</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>29</td>
+            			<td class='main__td'>30</td>
+            			<td class='main__td'>31</td>
+            			<td class='main__td'>1</td>
+            			<td class='main__td'>2</td>
+            			<td class='main__td'>3</td>
+            			<td class='main__td'>4</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>5</td>
+            			<td class='main__td'>6</td>
+            			<td class='main__td'>7</td>
+            			<td class='main__td'>8</td>
+            			<td class='main__td'>9</td>
+            			<td class='main__td'>10</td>
+            			<td class='main__td'>11</td>
+          			</tr>                         
+        		</table>
+        		</div>
+        		<div class='main__month'>
+				<p class="main__monthName">Январь</p>
+        		<table cellspacing="10">
+          			<tr class='main__dayOfWeek'>
+            			<td>SUN</td>
+            			<td>MON</td>
+            			<td>TUE</td>
+            			<td>WED</td>
+            			<td>THU</td>
+            			<td>FRI</td>
+            			<td>SAT</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>1</td>
+            			<td class='main__td'>2</td>
+            			<td class='main__td'>3</td>
+            			<td class='main__td'>4</td>
+            			<td class='main__td'>5</td>
+            			<td class='main__td'>6</td>
+            			<td class='main__td'>7</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>8</td>
+            			<td class='main__td'>9</td>
+            			<td class='main__td'>10</td>
+            			<td class='main__td'>11</td>
+            			<td class='main__td'>12</td>
+            			<td class='main__td'>13</td>
+            			<td class='main__td'>14</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>15</td>
+            			<td class='main__td'>16</td>
+            			<td class='main__td'>17</td>
+            			<td class='main__td'>18</td>
+            			<td class='main__td'>19</td>
+            			<td class='main__td'>20</td>
+            			<td class='main__td'>21</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>22</td>
+            			<td class='main__td'>23</td>
+            			<td class='main__td'>24</td>
+            			<td class='main__td'>25</td>
+            			<td class='main__td'>26</td>
+            			<td class='main__td'>27</td>
+            			<td class='main__td'>28</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>29</td>
+            			<td class='main__td'>30</td>
+            			<td class='main__td'>31</td>
+            			<td class='main__td'>1</td>
+            			<td class='main__td'>2</td>
+            			<td class='main__td'>3</td>
+            			<td class='main__td'>4</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>5</td>
+            			<td class='main__td'>6</td>
+            			<td class='main__td'>7</td>
+            			<td class='main__td'>8</td>
+            			<td class='main__td'>9</td>
+            			<td class='main__td'>10</td>
+            			<td class='main__td'>11</td>
+          			</tr>                         
+        		</table>
+        		</div>
+				<div class='main__month'>
+				<p class="main__monthName">Январь</p>
+        		<table cellspacing="10">
+          			<tr class='main__dayOfWeek'>
+            			<td>SUN</td>
+            			<td>MON</td>
+            			<td>TUE</td>
+            			<td>WED</td>
+            			<td>THU</td>
+            			<td>FRI</td>
+            			<td>SAT</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>1</td>
+            			<td class='main__td'>2</td>
+            			<td class='main__td'>3</td>
+            			<td class='main__td'>4</td>
+            			<td class='main__td'>5</td>
+            			<td class='main__td'>6</td>
+            			<td class='main__td'>7</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>8</td>
+            			<td class='main__td'>9</td>
+            			<td class='main__td'>10</td>
+            			<td class='main__td'>11</td>
+            			<td class='main__td'>12</td>
+            			<td class='main__td'>13</td>
+            			<td class='main__td'>14</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>15</td>
+            			<td class='main__td'>16</td>
+            			<td class='main__td'>17</td>
+            			<td class='main__td'>18</td>
+            			<td class='main__td'>19</td>
+            			<td class='main__td'>20</td>
+            			<td class='main__td'>21</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>22</td>
+            			<td class='main__td'>23</td>
+            			<td class='main__td'>24</td>
+            			<td class='main__td'>25</td>
+            			<td class='main__td'>26</td>
+            			<td class='main__td'>27</td>
+            			<td class='main__td'>28</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>29</td>
+            			<td class='main__td'>30</td>
+            			<td class='main__td'>31</td>
+            			<td class='main__td'>1</td>
+            			<td class='main__td'>2</td>
+            			<td class='main__td'>3</td>
+            			<td class='main__td'>4</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>5</td>
+            			<td class='main__td'>6</td>
+            			<td class='main__td'>7</td>
+            			<td class='main__td'>8</td>
+            			<td class='main__td'>9</td>
+            			<td class='main__td'>10</td>
+            			<td class='main__td'>11</td>
+          			</tr>                         
+        		</table>
+        		</div>
+        		<div class='main__month'>
+				<p class="main__monthName">Январь</p>
+        		<table cellspacing="10">
+          			<tr class='main__dayOfWeek'>
+            			<td>SUN</td>
+            			<td>MON</td>
+            			<td>TUE</td>
+            			<td>WED</td>
+            			<td>THU</td>
+            			<td>FRI</td>
+            			<td>SAT</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>1</td>
+            			<td class='main__td'>2</td>
+            			<td class='main__td'>3</td>
+            			<td class='main__td'>4</td>
+            			<td class='main__td'>5</td>
+            			<td class='main__td'>6</td>
+            			<td class='main__td'>7</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>8</td>
+            			<td class='main__td'>9</td>
+            			<td class='main__td'>10</td>
+            			<td class='main__td'>11</td>
+            			<td class='main__td'>12</td>
+            			<td class='main__td'>13</td>
+            			<td class='main__td'>14</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>15</td>
+            			<td class='main__td'>16</td>
+            			<td class='main__td'>17</td>
+            			<td class='main__td'>18</td>
+            			<td class='main__td'>19</td>
+            			<td class='main__td'>20</td>
+            			<td class='main__td'>21</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>22</td>
+            			<td class='main__td'>23</td>
+            			<td class='main__td'>24</td>
+            			<td class='main__td'>25</td>
+            			<td class='main__td'>26</td>
+            			<td class='main__td'>27</td>
+            			<td class='main__td'>28</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>29</td>
+            			<td class='main__td'>30</td>
+            			<td class='main__td'>31</td>
+            			<td class='main__td'>1</td>
+            			<td class='main__td'>2</td>
+            			<td class='main__td'>3</td>
+            			<td class='main__td'>4</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>5</td>
+            			<td class='main__td'>6</td>
+            			<td class='main__td'>7</td>
+            			<td class='main__td'>8</td>
+            			<td class='main__td'>9</td>
+            			<td class='main__td'>10</td>
+            			<td class='main__td'>11</td>
+          			</tr>                         
+        		</table>
+        		</div>        	
+			</div>
+			<div class='main__row'>
+				<div class='main__month'>
+				<p class="main__monthName">Январь</p>
+        		<table cellspacing="10">
+          			<tr class='main__dayOfWeek'>
+            			<td>SUN</td>
+            			<td>MON</td>
+            			<td>TUE</td>
+            			<td>WED</td>
+            			<td>THU</td>
+            			<td>FRI</td>
+            			<td>SAT</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>1</td>
+            			<td class='main__td'>2</td>
+            			<td class='main__td'>3</td>
+            			<td class='main__td'>4</td>
+            			<td class='main__td'>5</td>
+            			<td class='main__td'>6</td>
+            			<td class='main__td'>7</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>8</td>
+            			<td class='main__td'>9</td>
+            			<td class='main__td'>10</td>
+            			<td class='main__td'>11</td>
+            			<td class='main__td'>12</td>
+            			<td class='main__td'>13</td>
+            			<td class='main__td'>14</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>15</td>
+            			<td class='main__td'>16</td>
+            			<td class='main__td'>17</td>
+            			<td class='main__td'>18</td>
+            			<td class='main__td'>19</td>
+            			<td class='main__td'>20</td>
+            			<td class='main__td'>21</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>22</td>
+            			<td class='main__td'>23</td>
+            			<td class='main__td'>24</td>
+            			<td class='main__td'>25</td>
+            			<td class='main__td'>26</td>
+            			<td class='main__td'>27</td>
+            			<td class='main__td'>28</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>29</td>
+            			<td class='main__td'>30</td>
+            			<td class='main__td'>31</td>
+            			<td class='main__td'>1</td>
+            			<td class='main__td'>2</td>
+            			<td class='main__td'>3</td>
+            			<td class='main__td'>4</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>5</td>
+            			<td class='main__td'>6</td>
+            			<td class='main__td'>7</td>
+            			<td class='main__td'>8</td>
+            			<td class='main__td'>9</td>
+            			<td class='main__td'>10</td>
+            			<td class='main__td'>11</td>
+          			</tr>                         
+        		</table>
+        		</div>
+        		<div class='main__month'>
+				<p class="main__monthName">Январь</p>
+        		<table cellspacing="10">
+          			<tr class='main__dayOfWeek'>
+            			<td>SUN</td>
+            			<td>MON</td>
+            			<td>TUE</td>
+            			<td>WED</td>
+            			<td>THU</td>
+            			<td>FRI</td>
+            			<td>SAT</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>1</td>
+            			<td class='main__td'>2</td>
+            			<td class='main__td'>3</td>
+            			<td class='main__td'>4</td>
+            			<td class='main__td'>5</td>
+            			<td class='main__td'>6</td>
+            			<td class='main__td'>7</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>8</td>
+            			<td class='main__td'>9</td>
+            			<td class='main__td'>10</td>
+            			<td class='main__td'>11</td>
+            			<td class='main__td'>12</td>
+            			<td class='main__td'>13</td>
+            			<td class='main__td'>14</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>15</td>
+            			<td class='main__td'>16</td>
+            			<td class='main__td'>17</td>
+            			<td class='main__td'>18</td>
+            			<td class='main__td'>19</td>
+            			<td class='main__td'>20</td>
+            			<td class='main__td'>21</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>22</td>
+            			<td class='main__td'>23</td>
+            			<td class='main__td'>24</td>
+            			<td class='main__td'>25</td>
+            			<td class='main__td'>26</td>
+            			<td class='main__td'>27</td>
+            			<td class='main__td'>28</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>29</td>
+            			<td class='main__td'>30</td>
+            			<td class='main__td'>31</td>
+            			<td class='main__td'>1</td>
+            			<td class='main__td'>2</td>
+            			<td class='main__td'>3</td>
+            			<td class='main__td'>4</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>5</td>
+            			<td class='main__td'>6</td>
+            			<td class='main__td'>7</td>
+            			<td class='main__td'>8</td>
+            			<td class='main__td'>9</td>
+            			<td class='main__td'>10</td>
+            			<td class='main__td'>11</td>
+          			</tr>                         
+        		</table>
+        		</div>
+				<div class='main__month'>
+				<p class="main__monthName">Январь</p>
+        		<table cellspacing="10">
+          			<tr class='main__dayOfWeek'>
+            			<td>SUN</td>
+            			<td>MON</td>
+            			<td>TUE</td>
+            			<td>WED</td>
+            			<td>THU</td>
+            			<td>FRI</td>
+            			<td>SAT</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>1</td>
+            			<td class='main__td'>2</td>
+            			<td class='main__td'>3</td>
+            			<td class='main__td'>4</td>
+            			<td class='main__td'>5</td>
+            			<td class='main__td'>6</td>
+            			<td class='main__td'>7</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>8</td>
+            			<td class='main__td'>9</td>
+            			<td class='main__td'>10</td>
+            			<td class='main__td'>11</td>
+            			<td class='main__td'>12</td>
+            			<td class='main__td'>13</td>
+            			<td class='main__td'>14</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>15</td>
+            			<td class='main__td'>16</td>
+            			<td class='main__td'>17</td>
+            			<td class='main__td'>18</td>
+            			<td class='main__td'>19</td>
+            			<td class='main__td'>20</td>
+            			<td class='main__td'>21</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>22</td>
+            			<td class='main__td'>23</td>
+            			<td class='main__td'>24</td>
+            			<td class='main__td'>25</td>
+            			<td class='main__td'>26</td>
+            			<td class='main__td'>27</td>
+            			<td class='main__td'>28</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>29</td>
+            			<td class='main__td'>30</td>
+            			<td class='main__td'>31</td>
+            			<td class='main__td'>1</td>
+            			<td class='main__td'>2</td>
+            			<td class='main__td'>3</td>
+            			<td class='main__td'>4</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>5</td>
+            			<td class='main__td'>6</td>
+            			<td class='main__td'>7</td>
+            			<td class='main__td'>8</td>
+            			<td class='main__td'>9</td>
+            			<td class='main__td'>10</td>
+            			<td class='main__td'>11</td>
+          			</tr>                         
+        		</table>
+        		</div>
+        		<div class='main__month'>
+				<p class="main__monthName">Январь</p>
+        		<table cellspacing="10">
+          			<tr class='main__dayOfWeek'>
+            			<td>SUN</td>
+            			<td>MON</td>
+            			<td>TUE</td>
+            			<td>WED</td>
+            			<td>THU</td>
+            			<td>FRI</td>
+            			<td>SAT</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>1</td>
+            			<td class='main__td'>2</td>
+            			<td class='main__td'>3</td>
+            			<td class='main__td'>4</td>
+            			<td class='main__td'>5</td>
+            			<td class='main__td'>6</td>
+            			<td class='main__td'>7</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>8</td>
+            			<td class='main__td'>9</td>
+            			<td class='main__td'>10</td>
+            			<td class='main__td'>11</td>
+            			<td class='main__td'>12</td>
+            			<td class='main__td'>13</td>
+            			<td class='main__td'>14</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>15</td>
+            			<td class='main__td'>16</td>
+            			<td class='main__td'>17</td>
+            			<td class='main__td'>18</td>
+            			<td class='main__td'>19</td>
+            			<td class='main__td'>20</td>
+            			<td class='main__td'>21</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>22</td>
+            			<td class='main__td'>23</td>
+            			<td class='main__td'>24</td>
+            			<td class='main__td'>25</td>
+            			<td class='main__td'>26</td>
+            			<td class='main__td'>27</td>
+            			<td class='main__td'>28</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>29</td>
+            			<td class='main__td'>30</td>
+            			<td class='main__td'>31</td>
+            			<td class='main__td'>1</td>
+            			<td class='main__td'>2</td>
+            			<td class='main__td'>3</td>
+            			<td class='main__td'>4</td>
+          			</tr>
+          			<tr>
+            			<td class='main__td'>5</td>
+            			<td class='main__td'>6</td>
+            			<td class='main__td'>7</td>
+            			<td class='main__td'>8</td>
+            			<td class='main__td'>9</td>
+            			<td class='main__td'>10</td>
+            			<td class='main__td'>11</td>
+          			</tr>                         
+        		</table>
+        		</div>        	
+			</div>							
+		</div>
+	</div>	
+
+</body>

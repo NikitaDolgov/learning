@@ -1,0 +1,40 @@
+.main-th {
+    width: 22px;
+    height: 10px;
+    opacity: 0.59;
+    font-family: HelveticaNeue;
+    font-size: 8px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.6px;
+    color: #949494;
+}
+.main-circle-empty {   
+    text-align: center;
+    border-radius: 100%;
+    height: 30px;
+}
+.main-button-empty {
+    border: 0px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    text-align: center;
+    background-color: #ffffff;
+    color: #717171;
+}
+.main-month_name{
+  	width: 58px;
+  	height: 19px;
+  	font-family: HelveticaNeue;
+  	font-size: 16px;
+  	font-weight: 300;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: normal;
+  	letter-spacing: 1.1px;
+  	color: #e30613;
+  	margin-left: 8px;
+ }
