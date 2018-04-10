@@ -1,12 +1,16 @@
 function smallMonthBefore() {
-  let monthNumber = getMonthNumber(document.getElementById('side_bottom-month-button').innerText); 
+  document.getElementById('side_bottom-right').disabled = false;
+  let monthNumber = getMonthNumber(document.getElementById('side_bottom-month-button').innerText);
+  if (monthNumber === 1) {document.getElementById('side_bottom-left').disabled = true}
   let monthName = getMonthName(monthNumber-1); 
   document.getElementById('side_bottom-month-button').innerText = monthName;
-  drawSmallMonth();
+  drawSmallMonth(document.getElementById('side_bottom-month-button'));
 }
 
 function smallMonthAfter() {
+  document.getElementById('side_bottom-left').disabled = false;
   let monthNumber = getMonthNumber(document.getElementById('side_bottom-month-button').innerText); 
+  if (monthNumber === 10) {document.getElementById('side_bottom-right').disabled = true}
   let monthName = getMonthName(monthNumber+1); 
   document.getElementById('side_bottom-month-button').innerText = monthName;
   drawSmallMonth();
