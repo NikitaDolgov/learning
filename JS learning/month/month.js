@@ -1,22 +1,69 @@
-function drawMonth(monthNumber) {
-    if (monthNumber === 0) document.getElementById('main-month0').innerHTML = buildTable(monthNumber);
-    if (monthNumber === 1) document.getElementById('main-month1').innerHTML = buildTable(monthNumber);
-    if (monthNumber === 2) document.getElementById('main-month2').innerHTML = buildTable(monthNumber);
-    if (monthNumber === 3) document.getElementById('main-month3').innerHTML = buildTable(monthNumber);
+function drawMainView(year) {
+    document.getElementById('main-view').innerHTML = buildMainView(year);
+
 }
 
+function buildMainView(year) {
+  return (
+    "<p class='main__year'>"+year+"</p>"+
+			"<div class='main__row'>"+
+				"<div class='main__month'>"+
+				  buildTable(year, 0)+
+        "</div>"+
+        "<div class='main__month'>"+
+				  buildTable(year, 1)+
+        "</div>"+
+        "<div class='main__month'>"+
+					buildTable(year, 2)+
+				"</div>"+
+				"<div class='main__month'>"+
+					buildTable(year, 3)+
+				"</div>"+        	
+			"</div>"+
+			"<div class='main__row'>"+
+				"<div class='main__month'>"+
+					buildTable(year, 4)+
+        "</div>"+
+        "<div class='main__month'>"+
+				  buildTable(year, 5)+
+        "</div>"+
+        "<div class='main__month'>"+
+					buildTable(year, 6)+
+				"</div>"+
+				"<div class='main__month'>"+
+					buildTable(year, 7)+
+				"</div>"+
+			"</div>"+
+			"<div class='main__row'>"+
+				"<div class='main__month'>"+
+					buildTable(year, 8)+
+        "</div>"+
+        "<div class='main__month'>"+
+					buildTable(year, 9)+
+        "</div>"+
+        "<div class='main__month'>"+
+					buildTable(year, 10)+
+				"</div>"+
+				"<div class='main__month'>"+
+          buildTable(year, 11)+
+				"</div>"+
+			"</div>"
+  )
+}
+
+
 //строим таблицу
-function buildTable(monthNumber) {
+function buildTable(year, monthNumber) {
   return (
       '<table cellspasing="10px">'+
         '<caption class="main-month_name">'+getMonthName(monthNumber)+'</caption>'+
-        tableRow(monthNumber, 1, [], [], true) +
-        tableRow(monthNumber, 2, [], [], true) +
-        tableRow(monthNumber, 3, [], [], true) +
-        tableRow(monthNumber, 4, [], [], true) +
-        tableRow(monthNumber, 5, [], [], true) +
-        tableRow(monthNumber, 6, [], [], true) +
-        tableRow(monthNumber, 7, [], [], true) +
+        tableRow(year, monthNumber, 1, [], [], true) +
+        tableRow(year, monthNumber, 2, [], [], true) +
+        tableRow(year, monthNumber, 3, [], [], true) +
+        tableRow(year, monthNumber, 4, [], [], true) +
+        tableRow(year, monthNumber, 5, [], [], true) +
+        tableRow(year, monthNumber, 6, [], [], true) +
+        tableRow(year, monthNumber, 7, [], [], true) +
       '</table>'  
   )
 }
@@ -52,33 +99,33 @@ function getDaysInMonth(month, year) {
 }
 
 // Получаем полный массив дат для для отображения месяца
-function getDays(monthNumber) {
+function getDays(year, monthNumber) {
     // Начало массива
     let days = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
     // Нужные номера месяцев(до,текущий и после)
-    const thisMonthNumber = new Date(Date.UTC(2018, monthNumber, 1)).getMonth();
+    const thisMonthNumber = new Date(Date.UTC(year, monthNumber, 1)).getMonth();
     const previousMonthNumber = thisMonthNumber - 1;
     const nextMonthNumber = thisMonthNumber + 1;
     // Номер дня в недели первого числа текущего месяца
-    let dayOfWeek = new Date(Date.UTC(2018, monthNumber, 1)).getDay();
+    let dayOfWeek = new Date(Date.UTC(year, monthNumber, 1)).getDay();
     // Для воскресенья вместо 0 делаем 7
     if (dayOfWeek === 0) {
       dayOfWeek = 7;
     }
   
     // Получаем массив дат для прошлого,текущего и следующего месяца
-    const thisMonthDays = getDaysInMonth(thisMonthNumber, 2018);
+    const thisMonthDays = getDaysInMonth(thisMonthNumber, year);
     let previousMonthDays;
     if (previousMonthNumber === -1) {
-      previousMonthDays = getDaysInMonth(11, 2017);
+      previousMonthDays = getDaysInMonth(11, year-1);
     } else {
-      previousMonthDays = getDaysInMonth(previousMonthNumber, 2018);
+      previousMonthDays = getDaysInMonth(previousMonthNumber, year);
     }
     let nextMonthDays;
     if (nextMonthNumber === 12) {
-      nextMonthDays = getDaysInMonth(0, 2019);
+      nextMonthDays = getDaysInMonth(0, year+1);
     } else {
-      nextMonthDays = getDaysInMonth(nextMonthNumber, 2018);
+      nextMonthDays = getDaysInMonth(nextMonthNumber, year);
     }
   
     // Сколько дней надо взять из предыдущего месяца и следующего
@@ -101,8 +148,8 @@ function getDays(monthNumber) {
   }
   
   // Клеим строки для таблицы из массива дат
-  function tableRow(monthNumber, rowNumber, holidays, weekneds, visible) {
-    const days = getDays(monthNumber);
+  function tableRow(year, monthNumber, rowNumber, holidays, weekneds, visible) {
+    const days = getDays(year, monthNumber);
     let inputRow = [];
     let row = [];
     // Получаем номера первого и последнего элементов из нужного блока в общем массиве дат (в зависимости от номера строки)
