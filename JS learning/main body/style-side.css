@@ -1,5 +1,5 @@
 .side {
-  	height: 757px;
+  	height: 846px;
   	border-radius: 5px;
   	background-blend-mode: overlay, normal;
 	background-color: #f2f2f2;
@@ -81,5 +81,10 @@
   	color: #252624;
 }
 .side_bottom-month {
-	margin-left: 10px;
+	margin-left: 33px;
+	margin-top: 25px;
+}
+.side__buttons {
+	background-color: #f2f2f2;
+	border: 0px;
 }
