@@ -168,8 +168,8 @@ function getDays(year, monthNumber) {
       row = inputRow.map(inputRow => {
         let circleClassName, buttonClassName;
         if (visible) {
-          // Если текущая дата - выделить синим
-          if (inputRow.getDate() === new Date().getDate() && inputRow.getMonth() === new Date().getMonth()) {
+          // Если текущая дата - выделить красным
+          if (inputRow.getDate() === new Date().getDate() && inputRow.getMonth() === new Date().getMonth() && inputRow.getFullYear() === new Date().getFullYear()) {
             circleClassName = "main-circle-empty";
             buttonClassName = "main-table-button-filled";
           } else if (holidays.includes(new Date(Date.UTC(2018, inputRow.getMonth(), inputRow.getDate())).toISOString().split('T')[0], )) {
