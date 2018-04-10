@@ -32,7 +32,7 @@
     border-radius: 100%;
     color: #ffffff;
     text-align: center;
-    height: 23px;
+    height: 26px;
 }
 .main-month_name{
   	width: 58px;
@@ -46,4 +46,10 @@
   	letter-spacing: 1.1px;
   	color: #e30613;
   	margin-left: 8px;
+ }
+ button:focus {
+     outline:none;
+ }
+ button:hover {
+     cursor: pointer;
  }
