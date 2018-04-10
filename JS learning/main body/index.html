@@ -51,12 +51,12 @@
 			<hr>
 			<div class='side__bottom'>
 				<div class='side__bottom-top'>
-					<Button type="button" class='side__buttons' onclick="">&#60;</Button>
-					<Button type="button" class='side__buttons'>Апрель</Button>
-					<Button type="button" class='side__buttons'>&#62;</Button>
+					<Button type="button" class='side__buttons' onclick="smallMonthBefore()">&#60;</Button>
+					<button id="side_bottom-month-button" class='side__buttons'>Апрель</button>
+					<Button type="button" class='side__buttons' onclick="smallMonthAfter()">&#62;</Button>
 				</div>
 				<div id ='side_bottom-small-month' class='side_bottom-month'>
-					<script>drawSmallMonth(3)</script>
+					<script>drawSmallMonth()</script>
 				</div>
 			</div>	
 		</div>

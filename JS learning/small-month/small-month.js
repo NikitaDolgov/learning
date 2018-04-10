@@ -1,5 +1,42 @@
-function drawSmallMonth(monthNumber) {
-    document.getElementById('side_bottom-small-month').innerHTML = buildTableSmallMonth(monthNumber);
+function smallMonthBefore() {
+  let monthNumber = getMonthNumber(document.getElementById('side_bottom-month-button').innerText); 
+  let monthName = getMonthName(monthNumber-1); 
+  document.getElementById('side_bottom-month-button').innerText = monthName;
+  drawSmallMonth();
+}
+
+function smallMonthAfter() {
+  let monthNumber = getMonthNumber(document.getElementById('side_bottom-month-button').innerText); 
+  let monthName = getMonthName(monthNumber+1); 
+  document.getElementById('side_bottom-month-button').innerText = monthName;
+  drawSmallMonth();
+}
+
+function drawSmallMonth() {
+  let monthNumber = getMonthNumber(document.getElementById('side_bottom-month-button').innerText);  
+  document.getElementById('side_bottom-small-month').innerHTML = buildTableSmallMonth(monthNumber);
+}
+
+function getMonthNumber(name){
+  const months = [
+    'Январь',
+    'Февраль',
+    'Март',
+    'Апрель',
+    'Май',
+    'Июнь',
+    'Июль',
+    'Август',
+    'Сентябрь',
+    'Октябрь',
+    'Ноябрь',
+    'Декабрь',
+  ];
+  let monthNumber;
+    for (let i=0;i<months.length;i++) {
+      if (name === months[i]) {monthNumber=i}
+    }
+    return monthNumber;
 }
 
 //строим таблицу
