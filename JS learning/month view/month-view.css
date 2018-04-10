@@ -1,0 +1,33 @@
+.month_view-th {
+    font-family: SFUIText;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: right;
+    color: #323232;
+    vertical-align: bottom;
+}
+.month_view-circle-empty {
+    border: 1px solid #d7d7d7;
+    text-align: right;
+    vertical-align: top;
+    width: 15%;
+    height: 15%;
+    font-family: SFUIText;
+    font-size: 17px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #9b9b9b;
+}
+.month_view-table {
+    margin-top: -50px;
+    border-collapse: collapse;
+    width: 100%;
+    height: 100%;
+}

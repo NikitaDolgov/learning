@@ -7,9 +7,11 @@
 	<link rel="stylesheet" href="style-side.css">
 	<link rel="stylesheet" href="style-main.css">
 	<link rel="stylesheet" href="../small-month/small-month.css">
+	<link rel="stylesheet" href="../main view/main-view.css">
+	<link rel="stylesheet" href="../month view/month-view.css">
 	<script src="../small-month/small-month.js"></script>
-	<link rel="stylesheet" href="../month/month.css">
-	<script src="../month/month.js"></script>
+	<script src="../main view/main-view.js"></script>
+	<script src="../month view/month-view.js"></script>
 	<style>table {table-layout: fixed;}</style>
 </head>
 <body>
@@ -56,12 +58,15 @@
 				<p id='side_bottom-month'>
 				</p>
 				<div id = 'side_bottom-small-month'>
-					<script>drawSmallMonth(4)</script>
+					<script>drawSmallMonth(3)</script>
 				</div>
 			</div>	
 		</div>
-		<div id='main-view' class='main'>
+		<!-- <div id='main-view' class='main'>
 			<script>drawMainView(2018)</script>
+		</div> -->
+		<div id='month-view' class='main'>
+			<script>drawMonthView()</script>
 		</div>
 	</div>	
 

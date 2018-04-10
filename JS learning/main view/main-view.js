@@ -57,13 +57,13 @@ function buildTable(year, monthNumber) {
   return (
       '<table cellspasing="10px">'+
         '<caption class="main-month_name">'+getMonthName(monthNumber)+'</caption>'+
-        tableRow(year, monthNumber, 1, [], [], true) +
-        tableRow(year, monthNumber, 2, [], [], true) +
-        tableRow(year, monthNumber, 3, [], [], true) +
-        tableRow(year, monthNumber, 4, [], [], true) +
-        tableRow(year, monthNumber, 5, [], [], true) +
-        tableRow(year, monthNumber, 6, [], [], true) +
-        tableRow(year, monthNumber, 7, [], [], true) +
+        tableRow(year, monthNumber, 1, [], []) +
+        tableRow(year, monthNumber, 2, [], []) +
+        tableRow(year, monthNumber, 3, [], []) +
+        tableRow(year, monthNumber, 4, [], []) +
+        tableRow(year, monthNumber, 5, [], []) +
+        tableRow(year, monthNumber, 6, [], []) +
+        tableRow(year, monthNumber, 7, [], []) +
       '</table>'  
   )
 }
@@ -148,7 +148,7 @@ function getDays(year, monthNumber) {
   }
   
   // Клеим строки для таблицы из массива дат
-  function tableRow(year, monthNumber, rowNumber, holidays, weekneds, visible) {
+  function tableRow(year, monthNumber, rowNumber, holidays, weekneds) {
     const days = getDays(year, monthNumber);
     let inputRow = [];
     let row = [];
@@ -167,7 +167,6 @@ function getDays(year, monthNumber) {
     } else
       row = inputRow.map(inputRow => {
         let circleClassName, buttonClassName;
-        if (visible) {
           // Если текущая дата - выделить красным
           if (inputRow.getDate() === new Date().getDate() && inputRow.getMonth() === new Date().getMonth() && inputRow.getFullYear() === new Date().getFullYear()) {
             circleClassName = "main-circle-empty";
@@ -183,29 +182,6 @@ function getDays(year, monthNumber) {
             buttonClassName = "main-button-empty circle--weekend";
           }
           else {
-            // Все что осталось обрабатывается тут
-            circleClassName = "main-circle-empty";
-            buttonClassName = "main-button-empty";
-          }
-        } else if (inputRow.getMonth() !== monthNumber) {
-          circleClassName = 'circle_invisible';
-          buttonClassName = 'Month__table-button-empty circle_invisible'
-        }
-        else
-          // Если текущая дата - выделить синим
-          if (inputRow.getDate() === new Date().getDate() && inputRow.getMonth() === new Date().getMonth()) {
-            circleClassName = "circle--filled";
-            buttonClassName = "main-table-button-filled";
-          }
-          else if (holidays.includes(new Date(Date.UTC(2018, inputRow.getMonth(), inputRow.getDate())).toISOString().split('T')[0], )) {
-            // Иначе, все остальный дни сначала проверяются на попадание в массив праздников
-            circleClassName = "main-circle-empty";
-            buttonClassName = "main-button-empty circle--holiday";
-          } else if (weekneds.includes(new Date(Date.UTC(2018, inputRow.getMonth(), inputRow.getDate())).toISOString().split('T')[0], )) {
-            // Потом проверяются на попадание в массив выходных      
-            circleClassName = "main-circle-empty";
-            buttonClassName = "main-button-empty circle--weekend";
-          } else {
             // Все что осталось обрабатывается тут
             circleClassName = "main-circle-empty";
             buttonClassName = "main-button-empty";
