@@ -1,11 +1,27 @@
 function drawMainView(year) {
     document.getElementById('main-view').innerHTML = buildMainView(year);
+}
 
+function mainLeft() {
+  let year = document.getElementById('main__year').innerText; 
+  document.getElementById('main__year').innerText = year-1;
+  drawMainView(year-1);
+}
+
+function mainRight() {
+  let year = parseInt(document.getElementById('main__year').innerText); 
+  document.getElementById('main__year').innerText = year+1;
+  drawMainView(year+1);
 }
 
 function buildMainView(year) {
   return (
-    "<p class='main__year'>"+year+"</p>"+
+    "<div class='main__header'>"+
+      "<p id='main__year' class='main__year'>"+year+"</p>"+
+      "<button type='button' class='main__left-arrow' onclick='mainLeft()'>&#60;</button>"+
+      "<button type='button' class='main__middle'>Сегодня</button>"+
+      "<button type='button' class='main__right-arrow' onclick='mainRight()'>&#62;</button>"+
+    "</div>"+
 			"<div class='main__row'>"+
 				"<div class='main__month'>"+
 				  buildTable(year, 0)+

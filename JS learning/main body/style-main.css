@@ -1,19 +1,27 @@
 .main {
 	flex: 84%;
 }
-.main__year {
+.main__header {
 	width: 66px;
   	height: 32px;
-  	font-family: HelveticaNeue;
-  	font-size: 26px;
-  	font-weight: 300;
-  	font-style: normal;
-  	font-stretch: normal;
-  	line-height: normal;
-  	letter-spacing: 1.9px;
-  	color: #1d2022;
-  	margin-top: 10px;
-  	margin-left: 37px; 
+	padding-left: 37px;
+	padding-top: 10px;
+	margin-bottom: -10px;
+	display: flex;
+}
+.main__year {
+	font-family: HelveticaNeue;
+	font-size: 26px;
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: 1.9px;
+	color: #1d2022;
+	margin: 0px;
+}
+.main__left-arrow {
+	margin-left: 1180px;
 }
 .main__row {
 	display: flex;
