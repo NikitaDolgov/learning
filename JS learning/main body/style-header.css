@@ -77,20 +77,30 @@
 	display:flex;
 	margin-left: 16%;
 }
-.header__day-week-month {
+.header__day {
   	width: 64px;
   	height: 22px;
-  	border-radius: 3px;
+  	border-radius: 3px 0px 0px 3px;
   	background-image: linear-gradient(to bottom, #fefefe, #f1f1f1);
   	box-shadow: 0 0.5px 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 0.5px rgba(0, 0, 0, 0.1);
   	display: flex;
   	align-items: center;
   	justify-content: center;
 }
+.header__week-month {
+	width: 64px;
+	height: 22px;
+	border-radius: 0px;
+	background-image: linear-gradient(to bottom, #fefefe, #f1f1f1);
+	box-shadow: 0 0.5px 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 0.5px rgba(0, 0, 0, 0.1);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 .header__year {
   	width: 64px;
   	height: 22px;
-  	border-radius: 4px;
+  	border-radius: 0px 3px 3px 0px;
   	background-color: rgba(0, 0, 0, 0.35);
   	display: flex;
   	align-items: center;
