@@ -103,65 +103,23 @@ function getMonthName(monthNumber) {
     return months[monthNumber];
 }
 
-// Получаем список дней из месяца
-function getDaysInMonth(month, year) {
-    const date = new Date(Date.UTC(year, month, 1));
-    const days = [];
-    while (date.getMonth() === month) {
-      days.push(new Date(date));
-      date.setDate(date.getDate() + 1);
-    }
-    return days;
-}
+
 
 // Получаем полный массив дат для для отображения месяца
 function getDays(year, monthNumber) {
-    // Начало массива
-    let days = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
-    // Нужные номера месяцев(до,текущий и после)
-    const thisMonthNumber = new Date(Date.UTC(year, monthNumber, 1)).getMonth();
-    const previousMonthNumber = thisMonthNumber - 1;
-    const nextMonthNumber = thisMonthNumber + 1;
-    // Номер дня в недели первого числа текущего месяца
-    let dayOfWeek = new Date(Date.UTC(year, monthNumber, 1)).getDay();
-    // Для воскресенья вместо 0 делаем 7
-    if (dayOfWeek === 0) {
-      dayOfWeek = 7;
-    }
-  
-    // Получаем массив дат для прошлого,текущего и следующего месяца
-    const thisMonthDays = getDaysInMonth(thisMonthNumber, year);
-    let previousMonthDays;
-    if (previousMonthNumber === -1) {
-      previousMonthDays = getDaysInMonth(11, year-1);
-    } else {
-      previousMonthDays = getDaysInMonth(previousMonthNumber, year);
-    }
-    let nextMonthDays;
-    if (nextMonthNumber === 12) {
-      nextMonthDays = getDaysInMonth(0, year+1);
-    } else {
-      nextMonthDays = getDaysInMonth(nextMonthNumber, year);
-    }
-  
-    // Сколько дней надо взять из предыдущего месяца и следующего
-    const a = previousMonthDays.length - dayOfWeek + 1;
-    const b = 42 - thisMonthDays.length - dayOfWeek + 1;
-  
-    // Добавляем даты из предыдущего месяца
-    for (let i = a; i < previousMonthDays.length; i++) {
-      days = days.concat(previousMonthDays[i]);
-    }
-    // Добавляем даты из текущего месяцаэ
-    for (let i = 0; i < thisMonthDays.length; i++) {
-      days = days.concat(thisMonthDays[i]);
-    }
-    // Добавляем даты из следующего месяца
-    for (let i = 0; i < b; i++) {
-      days = days.concat(nextMonthDays[i]);
-    }
-    return days;
+  // Начало массива
+  let days = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
+  let dayOfWeek = new Date(year,monthNumber,1).getDay();
+  if (dayOfWeek === 0) {dayOfWeek=6} else {dayOfWeek = dayOfWeek - 1}
+  let tempDatePreviousMonth = new Date(year,monthNumber-1,(new Date(year, monthNumber, 0).getDate()-dayOfWeek+1));
+  //Дописываем все дни
+  for (let i = 7; i < 49; i++) {
+    days.push(new Date(tempDatePreviousMonth));
+    tempDatePreviousMonth.setDate(tempDatePreviousMonth.getDate()+1);
   }
+  return days;
+}
+  
   
   // Клеим строки для таблицы из массива дат
   function tableRow(year, monthNumber, rowNumber, holidays, weekneds) {
