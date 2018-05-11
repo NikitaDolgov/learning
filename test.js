@@ -98,10 +98,11 @@ function addElement () {
         newDiv.style.height = "100px";
     }
 
-    newDiv.style.left = '200px'; 
+    newDiv.style.left = '210px'; 
     newDiv.innerHTML += '1';
     // add the newly created element and its content into the DOM 
     document.getElementById("main").appendChild(newDiv); 
+    indicatorUp();
     fall();
 }
 
@@ -121,14 +122,18 @@ function getRandomFigure() {
 
 function left() {
     var d = document.getElementById(element);
-    if(parseInt(d.style.left.split('px')[0])>50) {
+    if(parseInt(d.style.left.split('px')[0])>10) {
     d.style.left = parseInt(d.style.left.split('px')[0])-50+'px';
     }
 }
 
 function right() {
     var d = document.getElementById(element);
-    if(parseInt(d.style.left.split('px')[0])<450) {
+    if(parseInt(d.style.left.split('px')[0])<500) {
     d.style.left = parseInt(d.style.left.split('px')[0])+50+'px';
     }
+}
+
+function indicatorUp() {
+    document.getElementById('ind').innerHTML = element+1;
 }
