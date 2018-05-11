@@ -1,6 +1,7 @@
 var element=0;
 var i = 10;
 var p = false;
+var degree = 0;
 
 function pause(){
     if(p) {
@@ -79,6 +80,7 @@ function fall () {
 
 
 function addElement () { 
+    degree=0;
     // create a new div element 
     var newDiv = document.createElement("div"); 
     // and give it some content 
@@ -134,6 +136,32 @@ function right() {
     }
 }
 
+function rotate() {
+    var d = document.getElementById(element);
+    var h = d.style.height;
+    var w = d.style.width;
+    d.style.height = w;
+    d.style.width = h;
+}
+
 function indicatorUp() {
     document.getElementById('ind').innerHTML = element+1;
+}
+
+
+document.onkeydown = function checkKeycode(event)
+{
+    switch(event.keyCode) {
+        case 37 :
+            left();
+            break;
+        case 39 :
+            right();
+            break;
+        case 38 :
+            rotate();
+            break;
+        default:
+        console.log(event.keyCode)
+    }
 }
