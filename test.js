@@ -2,6 +2,7 @@ var element=0;
 var i = 10;
 var p = false;
 var degree = 0;
+var speed = 200;
 
 function pause(){
     if(p) {
@@ -52,10 +53,14 @@ function fall () {
                     y:x
                 }
                 if((lb.y===tl.y && (tl.x === lb.x && lb.x<tr.x )) || (rb.y===tr.y && (tr.x === rb.x && rb.x>tl.x )) ){
-                    element++;
-                    i=10;
-                    addElement();
-                    return;
+                    if(lb.y <= 60) {
+                        gameOver();
+                    } else {
+                        element++;
+                        i=10;
+                        addElement();
+                        return;
+                    }
                 }
 
             } 
@@ -75,12 +80,13 @@ function fall () {
             element++;
             i=10;
             addElement();}
-    }}, 200)
+    }}, speed)
 }
 
 
 function addElement () { 
-    degree=0;
+    speed = 200;
+    degree = 0;
     // create a new div element 
     var newDiv = document.createElement("div"); 
     // and give it some content 
@@ -148,6 +154,30 @@ function indicatorUp() {
     document.getElementById('ind').innerHTML = element+1;
 }
 
+function gameOver() {
+    pause();
+    var newDiv = document.createElement("div"); 
+    newDiv.setAttribute("id", 'gameOver');
+    newDiv.style.position = "absolute";
+    newDiv.style.backgroundColor = '#c7c8ca';
+    newDiv.style.color = 'red';
+    newDiv.style.width = '200px';
+    newDiv.style.height = '50px';
+    newDiv.style.textAlign = 'center';
+    newDiv.style.lineHeight = '50px';
+    newDiv.style.fontSize = '30px';
+    newDiv.style.fontWeight = 'bold';
+    newDiv.innerHTML += 'Game Over!';
+    newDiv.style.left = '180px'; 
+    newDiv.style.top = '200px';
+    newDiv.style.borderRadius = '100%';
+    document.getElementById("main").appendChild(newDiv); 
+}
+
+function increaseSpeed() {
+    speed = speed - 50;
+}
+
 
 document.onkeydown = function checkKeycode(event)
 {
@@ -160,6 +190,9 @@ document.onkeydown = function checkKeycode(event)
             break;
         case 38 :
             rotate();
+            break;
+        case 40 :
+            increaseSpeed();
             break;
         default:
         console.log(event.keyCode)
