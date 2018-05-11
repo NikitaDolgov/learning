@@ -161,13 +161,18 @@ function getDays(year, monthNumber) {
             buttonClassName = "main-button-empty";
           }
         return (
-          '<td Class='+circleClassName+'>'+
-              '<Button type="button" class='+buttonClassName+'>'+
-                inputRow.getDate()+
+          '<td Class='+circleClassName+'>'+'<span Class="popuptext" id="myPopup">Popup text...</span>'+
+              '<Button type="button" onclick="popup()" class='+buttonClassName+'>'+
+                inputRow.getDate()+ 
               '</Button>'+
           '</td>'
         )
       });
 
     return '<tr>'+row.join('')+'</tr>';
+  }
+
+  function popup() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
   }
